@@ -117,8 +117,10 @@ p:last-child { margin-bottom: 0; }
 .nav-links .nav-link:hover::after, .nav-links .nav-link[aria-current='page']::after { transform: scaleX(1); }
 .nav-links .nav-link[aria-current='page'] { color: #6addf0; }
 .nav-links .btn { color: #fff; }
+.nav-actions { display: flex; align-items: center; gap: 1rem; }
 .whatsapp-link { display: inline-grid; width: 2.45rem; height: 2.45rem; place-items: center; border-radius: 50%; color: #25d366 !important; font-size: 1.55rem; transition: transform var(--transition), background var(--transition); }
 .whatsapp-link:hover { background: rgba(37, 211, 102, 0.12); transform: scale(1.08); }
+.mobile-whatsapp { display: none !important; }
 
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem; min-height: 3rem; padding: 0.75rem 1.3rem; border: 1px solid transparent; border-radius: var(--radius-pill); font-weight: 700; line-height: 1.2; transition: transform var(--transition), background var(--transition), box-shadow var(--transition), border-color var(--transition); }
 .btn:hover { transform: translateY(-2px); }
@@ -254,10 +256,11 @@ select option { color: #111827; }
     .nav-links { position: absolute; top: calc(100% + 1px); right: 0; left: 0; display: grid; gap: 0; padding: 0.75rem 1.25rem 1.25rem; border-bottom: 1px solid var(--glass-border); background: var(--bg-dark-secondary); box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.3); visibility: hidden; opacity: 0; transform: translateY(-0.75rem); transition: visibility var(--transition), opacity var(--transition), transform var(--transition); }
     .nav-links[data-open='true'] { visibility: visible; opacity: 1; transform: translateY(0); }
     .nav-links li { border-bottom: 1px solid rgba(255, 255, 255, 0.06); }
-    .nav-links li:last-child { border-bottom: 0; }
+    .nav-links li:last-child { border-bottom: 0; padding-top: 1rem; }
+    .desktop-whatsapp { display: none !important; }
+    .mobile-whatsapp { display: inline-grid !important; width: 2.1rem; height: 2.1rem; font-size: 1.35rem; }
     .nav-links a { display: inline-flex; padding: 0.85rem 0; }
-    .nav-links .btn, .nav-links .whatsapp-link { margin-top: 0.5rem; }
-    .nav-links .btn { justify-content: center; padding: 0.75rem 1.3rem; }
+    .nav-links .btn { justify-content: center; width: 100%; margin: 0; }
     .nav-links .nav-link::after { display: none; }
     .footer-content, .auth-layout { grid-template-columns: 1fr; }
 }
