@@ -1,64 +1,125 @@
+document.documentElement.classList.add('has-js');
+
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Mobile Navigation Toggle
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
+    const navToggle = document.querySelector('[data-nav-toggle]');
+    const navLinks = document.querySelector('[data-nav-links]');
 
-    if (hamburger) {
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('nav-active');
-            // Toggle hamburger icon between bars and times
-            const icon = hamburger.querySelector('i');
-            if (icon.classList.contains('fa-bars')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        });
-    }
-
-    // 2. Scroll Animations (Intersection Observer)
-    const animateElements = document.querySelectorAll('.animate-on-scroll');
-    
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px"
+    const closeNavigation = () => {
+        if (!navToggle || !navLinks) return;
+        navLinks.dataset.open = 'false';
+        navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.setAttribute('aria-label', 'Open menu');
+        navToggle.querySelector('i')?.classList.replace('fa-xmark', 'fa-bars');
     };
 
-    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
-        entries.forEach(entry => {
-            if (!entry.isIntersecting) {
-                return;
-            } else {
-                entry.target.classList.add('appear');
-                observer.unobserve(entry.target);
+    if (navToggle && navLinks) {
+        navToggle.addEventListener('click', () => {
+            const isOpen = navLinks.dataset.open === 'true';
+            navLinks.dataset.open = String(!isOpen);
+            navToggle.setAttribute('aria-expanded', String(!isOpen));
+            navToggle.setAttribute('aria-label', isOpen ? 'Open menu' : 'Close menu');
+            const icon = navToggle.querySelector('i');
+            icon?.classList.toggle('fa-bars', isOpen);
+            icon?.classList.toggle('fa-xmark', !isOpen);
+        });
+
+        navLinks.addEventListener('click', (event) => {
+            if (event.target.closest('a')) closeNavigation();
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                closeNavigation();
+                navToggle.focus();
             }
         });
-    }, observerOptions);
+    }
 
-    animateElements.forEach(el => {
-        appearOnScroll.observe(el);
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+    if (reducedMotion || !('IntersectionObserver' in window)) {
+        animatedElements.forEach((element) => element.classList.add('is-visible'));
+    } else {
+        const observer = new IntersectionObserver((entries, currentObserver) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('is-visible');
+                currentObserver.unobserve(entry.target);
+            });
+        }, { threshold: 0.12 });
+        animatedElements.forEach((element) => observer.observe(element));
+    }
+
+    const tabs = document.querySelectorAll('[role="tab"]');
+    tabs.forEach((tab) => {
+        tab.addEventListener('click', () => {
+            const panelId = tab.getAttribute('aria-controls');
+            tabs.forEach((item) => {
+                const selected = item === tab;
+                item.setAttribute('aria-selected', String(selected));
+                item.tabIndex = selected ? 0 : -1;
+            });
+            document.querySelectorAll('[role="tabpanel"]').forEach((panel) => {
+                panel.hidden = panel.id !== panelId;
+            });
+            document.querySelector(`#${panelId} input`)?.focus();
+        });
     });
 
-    // 3. Auth Page Tab Switching Logic
-    const authTabs = document.querySelectorAll('.auth-tab');
-    const authForms = document.querySelectorAll('.auth-form-content');
+    document.querySelectorAll('[data-password-toggle]').forEach((button) => {
+        button.addEventListener('click', () => {
+            const input = document.getElementById(button.dataset.passwordToggle);
+            if (!input) return;
+            const isPassword = input.type === 'password';
+            input.type = isPassword ? 'text' : 'password';
+            button.setAttribute('aria-label', isPassword ? 'Hide password' : 'Show password');
+            button.querySelector('i')?.classList.toggle('fa-eye', !isPassword);
+            button.querySelector('i')?.classList.toggle('fa-eye-slash', isPassword);
+        });
+    });
 
-    if (authTabs.length > 0) {
-        authTabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                // Remove active from all
-                authTabs.forEach(t => t.classList.remove('active'));
-                authForms.forEach(f => f.classList.remove('active'));
+    const bookingForm = document.querySelector('[data-whatsapp-form]');
+    if (bookingForm) {
+        const preferredDate = bookingForm.querySelector('[name="preferredDate"]');
+        if (preferredDate) preferredDate.min = new Date().toISOString().split('T')[0];
 
-                // Add active to clicked
-                tab.classList.add('active');
-                const targetForm = document.getElementById(tab.dataset.target);
-                if (targetForm) {
-                    targetForm.classList.add('active');
-                }
-            });
+        bookingForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            if (!bookingForm.reportValidity()) return;
+
+            const data = new FormData(bookingForm);
+            const details = [
+                'Hello Inforabia, I would like to request a consultation.',
+                '',
+                `Name: ${data.get('fullName')}`,
+                `Company: ${data.get('companyName')}`,
+                `Email: ${data.get('email')}`,
+                `Phone: ${data.get('phone')}`,
+                `Service: ${data.get('serviceInterest')}`,
+                `Company size: ${data.get('companySize')}`,
+                `Preferred date: ${data.get('preferredDate')}`,
+                `Project notes: ${data.get('projectDescription')}`
+            ].join('\n');
+            const url = `https://wa.me/966545220713?text=${encodeURIComponent(details)}`;
+            window.open(url, '_blank', 'noopener,noreferrer');
+
+            const status = bookingForm.querySelector('[data-form-status]');
+            if (status) {
+                status.dataset.state = 'success';
+                status.textContent = 'WhatsApp has opened with your consultation details ready to send.';
+            }
         });
     }
+
+    document.querySelectorAll('[data-auth-form]').forEach((form) => {
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            if (!form.reportValidity()) return;
+            const status = form.querySelector('[data-form-status]');
+            if (status) {
+                status.dataset.state = 'error';
+                status.textContent = 'The secure client portal is not connected yet. Please contact us to request account access.';
+            }
+        });
+    });
 });

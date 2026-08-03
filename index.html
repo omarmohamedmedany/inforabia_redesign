@@ -1,398 +1,201 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Inforabia is a premier IT partner specializing in Oracle digital transformations, cloud migrations, and ERP implementations for enterprise clients in the MENA region.">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#070913">
     <title>Inforabia Solutions and Consultancy | Accelerating Your Digital Success</title>
-    <!-- REAL Favicon from Inforabia -->
+    <link rel="canonical" href="https://inforabia.com/">
     <link rel="icon" type="image/jpeg" href="https://img1.wsimg.com/isteam/ip/641b16bf-0aca-44a9-8d2c-d4f57fdf78f0/favicon/7c1272c8-c73b-4bf2-b4f9-a9a1bfaae01d/7c71226e-79e9-4457-97c5-d5421246ef24.jpg">
-    <!-- FontAwesome 6.4.0 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Inforabia Solutions and Consultancy">
+    <meta property="og:title" content="Inforabia Solutions and Consultancy">
+    <meta property="og:description" content="Accelerating your digital success through innovative IT solutions and expert Oracle consultancy.">
+    <meta property="og:image" content="https://img1.wsimg.com/isteam/ip/641b16bf-0aca-44a9-8d2c-d4f57fdf78f0/Information-Technology-Services.jpg">
+    <meta property="og:url" content="https://inforabia.com/">
+    <meta property="og:locale" content="en_SA">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Inforabia Solutions and Consultancy">
+    <meta name="twitter:description" content="Accelerating your digital success through innovative IT solutions and expert Oracle consultancy.">
+    <meta name="twitter:image" content="https://img1.wsimg.com/isteam/ip/641b16bf-0aca-44a9-8d2c-d4f57fdf78f0/Information-Technology-Services.jpg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <nav class="navbar" aria-label="Primary navigation">
         <div class="container nav-container">
-            <a href="index.html" class="logo">
-                <img src="https://img1.wsimg.com/isteam/ip/641b16bf-0aca-44a9-8d2c-d4f57fdf78f0/Inforabia.jpg" alt="Inforabia Logo">
-            </a>
-            <div class="hamburger"><i class="fas fa-bars"></i></div>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="bookings.html">Bookings</a></li>
-                <li><a href="auth.html" class="btn btn-primary"><i class="fas fa-user-circle"></i> Account</a></li>
-                <li><a href="https://wa.me/966545220713?text=Hello%20Inforabia%2C%20I%20would%20like%20to%20inquire%20about%20your%20services." target="_blank" style="color: #25D366; font-size: 1.8rem; display: flex; align-items: center; margin-left: -0.5rem; transition: transform 0.3s; filter: drop-shadow(0 2px 5px rgba(37,211,102,0.3));" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" title="Contact us on WhatsApp"><i class="fab fa-whatsapp"></i></a></li>
+            <a class="logo" href="index.html" aria-label="Inforabia home"><img src="https://img1.wsimg.com/isteam/ip/641b16bf-0aca-44a9-8d2c-d4f57fdf78f0/Inforabia.jpg" alt="Inforabia"></a>
+            <button class="nav-toggle" type="button" aria-label="Open menu" aria-controls="primary-menu" aria-expanded="false" data-nav-toggle><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+            <ul class="nav-links" id="primary-menu" data-nav-links data-open="false">
+                <li><a class="nav-link" href="index.html" aria-current="page">Home</a></li>
+                <li><a class="nav-link" href="about.html">About us</a></li>
+                <li><a class="nav-link" href="services.html">Services</a></li>
+                <li><a class="nav-link" href="bookings.html">Bookings</a></li>
+                <li><a class="btn btn-primary" href="auth.html"><i class="fa-solid fa-user-circle" aria-hidden="true"></i> Client access</a></li>
+                <li><a class="whatsapp-link" href="https://wa.me/966545220713?text=Hello%20Inforabia%2C%20I%20would%20like%20to%20inquire%20about%20your%20services." target="_blank" rel="noopener noreferrer" aria-label="Contact Inforabia on WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
-    <header class="hero" style="background-image: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.8)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop'); background-size: cover; background-position: center; min-height: 100vh; display: flex; align-items: center;">
-        <div class="container hero-container animate-on-scroll">
-            <h1 class="hero-title text-gradient">Accelerating Your Digital Success</h1>
-            <p class="hero-subtitle subtitle">
-                As a premier Oracle Partner, Inforabia Solutions and Consultancy is dedicated to driving digital transformation, accelerating cloud migration, executing flawless ERP implementations, and providing comprehensive managed services across the MENA region. With a strong presence in Saudi Arabia, Egypt, the UAE, and beyond, we leverage our deep industry expertise and technical prowess to help enterprises modernize their operations, optimize performance, and achieve sustainable growth in today's dynamic digital landscape.
-            </p>
-            <div class="hero-buttons">
-                <a href="services.html" class="btn btn-primary">Explore Our Services</a>
-                <a href="bookings.html" class="btn btn-secondary">Schedule a Consultation</a>
+    <main id="main-content">
+        <header class="home-hero">
+            <div class="container hero-content animate-on-scroll">
+                <p class="eyebrow">Enterprise technology for MENA</p>
+                <h1>Accelerating your <span class="text-gradient">digital success</span></h1>
+                <p>Inforabia helps enterprises modernize operations through Oracle Cloud, secure migrations, expert implementations, and managed IT services across the MENA region.</p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="services.html">Explore our services <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    <a class="btn btn-secondary" href="bookings.html">Schedule a consultation</a>
+                </div>
             </div>
-        </div>
-    </header>
+        </header>
 
-    <!-- COMPREHENSIVE IT EXPERTISE SECTION -->
-    <section class="expertise-section section-padding">
-        <div class="container">
-            <div class="section-header text-center animate-on-scroll">
-                <h2 class="section-title">Comprehensive IT Expertise</h2>
-                <p class="section-desc text-muted">Leveraging cutting-edge technologies to empower your enterprise.</p>
-            </div>
-            <div class="grid grid-3">
-                <div class="glass-card expertise-card animate-on-scroll">
-                    <div class="card-icon"><i class="fa-solid fa-database text-gradient"></i></div>
-                    <h3>Oracle Implementations</h3>
-                    <p class="text-muted">
-                        We specialize in delivering robust Oracle Cloud solutions, including ERP Cloud, SCM, HCM, EPM, and CX. Our expert consultants bring deep domain knowledge to ensure seamless implementation, strategic enhancements, efficient migrations, and ongoing support services. By aligning Oracle technologies with your business objectives, we enable you to streamline processes, improve decision-making, and achieve operational excellence across your organization.
-                    </p>
+        <section class="section">
+            <div class="container">
+                <div class="section-heading animate-on-scroll">
+                    <p class="eyebrow">What we do</p>
+                    <h2>Comprehensive IT expertise</h2>
+                    <p>Practical technology leadership to help your enterprise work smarter, move faster, and scale with confidence.</p>
                 </div>
-                <div class="glass-card expertise-card animate-on-scroll">
-                    <div class="card-icon"><i class="fa-solid fa-cloud text-gradient"></i></div>
-                    <h3>Cloud Architecture & Migration</h3>
-                    <p class="text-muted">
-                        Navigate your cloud journey with confidence through our comprehensive OCI, AWS, and Azure migration services. We conduct thorough assessments, meticulous planning, and flawless execution to transition your critical workloads securely. Our focus extends beyond migration to include continuous optimization, ensuring your cloud infrastructure remains agile, scalable, and cost-effective while adhering to the highest security and compliance standards.
-                    </p>
-                </div>
-                <div class="glass-card expertise-card animate-on-scroll">
-                    <div class="card-icon"><i class="fa-solid fa-headset text-gradient"></i></div>
-                    <h3>Managed IT Services</h3>
-                    <p class="text-muted">
-                        Ensure optimal performance and minimize downtime with our comprehensive managed IT services. We provide 24/7 dedicated support, proactive system monitoring, and stringent SLA management to keep your business running smoothly. Our swift incident response and end-to-end infrastructure management allow your internal teams to focus on strategic initiatives, knowing your IT environment is in expert hands.
-                    </p>
+                <div class="grid grid--3">
+                    <a class="glass-card card-link animate-on-scroll" href="services.html#oracle-erp">
+                        <span class="card-icon"><i class="fa-solid fa-database" aria-hidden="true"></i></span>
+                        <span><h3>Oracle implementations</h3><p>ERP, SCM, HCM, EPM, and CX expertise aligned to measurable business outcomes.</p></span>
+                        <span class="link-arrow">Learn more <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+                    </a>
+                    <a class="glass-card card-link animate-on-scroll" href="services.html#cloud-migration">
+                        <span class="card-icon"><i class="fa-solid fa-cloud" aria-hidden="true"></i></span>
+                        <span><h3>Cloud architecture &amp; migration</h3><p>Move critical workloads to OCI, AWS, or Azure with a secure, carefully planned approach.</p></span>
+                        <span class="link-arrow">Learn more <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+                    </a>
+                    <a class="glass-card card-link animate-on-scroll" href="services.html#managed-services">
+                        <span class="card-icon"><i class="fa-solid fa-headset" aria-hidden="true"></i></span>
+                        <span><h3>Managed IT services</h3><p>Proactive monitoring, incident response, and SLA-led support that keeps business-critical systems available.</p></span>
+                        <span class="link-arrow">Learn more <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+                    </a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- SOLUTIONS OVERVIEW SECTION -->
-    <section class="solutions-section section-padding" style="background: rgba(20, 20, 20, 0.5);">
-        <div class="container">
-            <div class="section-header text-center animate-on-scroll">
-                <h2 class="section-title">Our Solutions Overview</h2>
-                <p class="section-desc text-muted">Transforming every facet of your business operations.</p>
-            </div>
-            <div class="grid grid-3">
-                <div class="glass-card solution-card animate-on-scroll">
-                    <div class="card-icon"><i class="fa-solid fa-chart-pie text-gradient"></i></div>
-                    <h3>Enterprise Resource Planning (ERP)</h3>
-                    <p class="text-muted">Empower your finance and operations teams with Oracle Fusion Cloud ERP. We deliver solutions that optimize financial management, automate procurement workflows, and enhance project management capabilities. Achieve real-time visibility into your financial health and drive strategic growth.</p>
+        <section class="section section--muted">
+            <div class="container">
+                <div class="section-heading animate-on-scroll">
+                    <p class="eyebrow">Oracle solutions</p>
+                    <h2>Built for every core operation</h2>
+                    <p>Connect finance, supply chain, people, customer experience, and performance management on a foundation designed for growth.</p>
                 </div>
-                <div class="glass-card solution-card animate-on-scroll">
-                    <div class="card-icon"><i class="fa-solid fa-truck-fast text-gradient"></i></div>
-                    <h3>Supply Chain Management (SCM)</h3>
-                    <p class="text-muted">Build a resilient and agile supply chain with Oracle SCM Cloud. Our implementations focus on optimizing inventory control, modernizing manufacturing processes, streamlining logistics, and improving order management. Deliver products faster while reducing operational costs.</p>
-                </div>
-                <div class="glass-card solution-card animate-on-scroll">
-                    <div class="card-icon"><i class="fa-solid fa-users text-gradient"></i></div>
-                    <h3>Human Capital Management (HCM)</h3>
-                    <p class="text-muted">Transform your HR operations and empower your workforce with Oracle HCM Cloud. We help you implement robust talent management strategies, efficient workforce management, accurate payroll processing, and comprehensive benefits administration to attract and retain top talent.</p>
-                </div>
-                <div class="glass-card solution-card animate-on-scroll">
-                    <div class="card-icon"><i class="fa-solid fa-chart-line text-gradient"></i></div>
-                    <h3>Enterprise Performance Management (EPM)</h3>
-                    <p class="text-muted">Drive better business outcomes with sophisticated EPM solutions. We implement agile planning, precise budgeting, predictive forecasting, streamlined financial consolidation, and comprehensive narrative reporting tools to enhance your organizational agility and financial performance.</p>
-                </div>
-                <div class="glass-card solution-card animate-on-scroll">
-                    <div class="card-icon"><i class="fa-solid fa-comments text-gradient"></i></div>
-                    <h3>Customer Experience (CX)</h3>
-                    <p class="text-muted">Elevate customer engagement across all touchpoints with Oracle CX Cloud. Our solutions seamlessly integrate sales, targeted marketing, responsive customer service, and unified commerce platforms to deliver personalized experiences that build lasting customer loyalty.</p>
-                </div>
-                <div class="glass-card solution-card animate-on-scroll">
-                    <div class="card-icon"><i class="fa-solid fa-microchip text-gradient"></i></div>
-                    <h3>Digital Transformation</h3>
-                    <p class="text-muted">Accelerate innovation by integrating advanced technologies into your core operations. We leverage Artificial Intelligence, Robotic Process Automation (RPA), IoT, Machine Learning, and rapid low-code development with VBCS to digitize workflows and future-proof your business.</p>
+                <div class="grid grid--3">
+                    <article class="glass-card animate-on-scroll"><span class="card-icon"><i class="fa-solid fa-chart-pie" aria-hidden="true"></i></span><h3>ERP</h3><p>Modernize finance, procurement, and projects with real-time business visibility.</p></article>
+                    <article class="glass-card animate-on-scroll"><span class="card-icon"><i class="fa-solid fa-truck-fast" aria-hidden="true"></i></span><h3>SCM</h3><p>Build a resilient supply chain with stronger inventory, manufacturing, and logistics control.</p></article>
+                    <article class="glass-card animate-on-scroll"><span class="card-icon"><i class="fa-solid fa-users" aria-hidden="true"></i></span><h3>HCM</h3><p>Give people teams the tools to attract, support, and develop a high-performing workforce.</p></article>
+                    <article class="glass-card animate-on-scroll"><span class="card-icon"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></span><h3>EPM</h3><p>Improve planning, forecasting, consolidation, and reporting with a connected performance platform.</p></article>
+                    <article class="glass-card animate-on-scroll"><span class="card-icon"><i class="fa-solid fa-comments" aria-hidden="true"></i></span><h3>CX</h3><p>Deliver coordinated sales, marketing, service, and commerce experiences at every touchpoint.</p></article>
+                    <article class="glass-card animate-on-scroll"><span class="card-icon"><i class="fa-solid fa-microchip" aria-hidden="true"></i></span><h3>Digital transformation</h3><p>Use AI, automation, IoT, and low-code development to streamline the work that matters most.</p></article>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- WHY CHOOSE US SECTION -->
-    <section class="why-us-section section-padding">
-        <div class="container">
-            <div class="grid grid-2" style="align-items: center; gap: 4rem;">
-                <div class="why-us-image animate-on-scroll">
-                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop" alt="Business Meeting" style="width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-                </div>
-                <div class="why-us-content animate-on-scroll">
-                    <h2 class="section-title">Why Partner With Inforabia?</h2>
-                    <p class="text-muted" style="margin-bottom: 2rem; font-size: 1.1rem; line-height: 1.6;">
-                        With strategic offices strategically located in Riyadh, Saudi Arabia, and Cairo, Egypt, Inforabia is perfectly positioned to serve the dynamic MENA market. We are more than just a technology vendor; we are your dedicated digital transformation partner committed to your long-term success.
-                    </p>
-                    <ul class="feature-list" style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 1rem;">
-                        <li style="display: flex; align-items: flex-start; gap: 1rem;">
-                            <i class="fa-solid fa-check-circle text-gradient" style="margin-top: 0.3rem;"></i>
-                            <div>
-                                <strong>Certified Oracle Professionals</strong>
-                                <span class="text-muted d-block">Backed by top-tier certifications and decades of combined experience.</span>
-                            </div>
-                        </li>
-                        <li style="display: flex; align-items: flex-start; gap: 1rem;">
-                            <i class="fa-solid fa-check-circle text-gradient" style="margin-top: 0.3rem;"></i>
-                            <div>
-                                <strong>End-to-End Project Delivery</strong>
-                                <span class="text-muted d-block">From initial strategic consultancy to flawless deployment and beyond.</span>
-                            </div>
-                        </li>
-                        <li style="display: flex; align-items: flex-start; gap: 1rem;">
-                            <i class="fa-solid fa-check-circle text-gradient" style="margin-top: 0.3rem;"></i>
-                            <div>
-                                <strong>Tailored Bespoke Solutions</strong>
-                                <span class="text-muted d-block">Customized approaches designed specifically for your unique business requirements.</span>
-                            </div>
-                        </li>
-                        <li style="display: flex; align-items: flex-start; gap: 1rem;">
-                            <i class="fa-solid fa-check-circle text-gradient" style="margin-top: 0.3rem;"></i>
-                            <div>
-                                <strong>24/7 Dedicated Support</strong>
-                                <span class="text-muted d-block">Unwavering support backed by strict SLA guarantees for maximum uptime.</span>
-                            </div>
-                        </li>
-                        <li style="display: flex; align-items: flex-start; gap: 1rem;">
-                            <i class="fa-solid fa-check-circle text-gradient" style="margin-top: 0.3rem;"></i>
-                            <div>
-                                <strong>Proven Track Record</strong>
-                                <span class="text-muted d-block">Successful deliveries across Oil & Gas, Banking, Retail, Government, and Healthcare.</span>
-                            </div>
-                        </li>
-                        <li style="display: flex; align-items: flex-start; gap: 1rem;">
-                            <i class="fa-solid fa-check-circle text-gradient" style="margin-top: 0.3rem;"></i>
-                            <div>
-                                <strong>Winning Together Philosophy</strong>
-                                <span class="text-muted d-block">A deeply collaborative partnership approach focused on mutual success and growth.</span>
-                            </div>
-                        </li>
+        <section class="section">
+            <div class="container grid grid--2 feature-layout">
+                <img class="feature-image animate-on-scroll" src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80" alt="Team meeting around a table" loading="lazy">
+                <div class="animate-on-scroll">
+                    <p class="eyebrow">Why Inforabia</p>
+                    <h2>A technology partner invested in your outcomes</h2>
+                    <p>With offices in Riyadh and Cairo, we pair regional understanding with enterprise-grade delivery for organizations across MENA.</p>
+                    <ul class="feature-list">
+                        <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span><strong>Certified Oracle professionals</strong><span>Deep domain knowledge backed by leading certifications and hands-on delivery experience.</span></span></li>
+                        <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span><strong>End-to-end delivery</strong><span>From strategy and architecture through deployment, adoption, and ongoing support.</span></span></li>
+                        <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span><strong>Tailored, SLA-led service</strong><span>Solutions designed for your organization, with dependable support when you need it.</span></span></li>
                     </ul>
                 </div>
             </div>
+        </section>
+
+        <section class="section section--muted">
+            <div class="container">
+                <div class="stats" aria-label="Inforabia by the numbers">
+                    <div class="stat animate-on-scroll"><strong>100+</strong><span>Enterprise clients</span></div>
+                    <div class="stat animate-on-scroll"><strong>500+</strong><span>Implementations</span></div>
+                    <div class="stat animate-on-scroll"><strong>15+</strong><span>Years of excellence</span></div>
+                    <div class="stat animate-on-scroll"><strong>98%</strong><span>Client satisfaction</span></div>
+                    <div class="stat animate-on-scroll"><strong>200+</strong><span>Certified professionals</span></div>
+                    <div class="stat animate-on-scroll"><strong>10+</strong><span>Countries served</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-heading animate-on-scroll"><p class="eyebrow">Industry expertise</p><h2>Enterprise experience across MENA</h2><p>Solutions tailored to sector-specific operations, regulation, risk, and growth goals.</p></div>
+                <div class="grid grid--4">
+                    <article class="glass-card industry-card animate-on-scroll"><span class="card-icon"><i class="fa-solid fa-oil-well" aria-hidden="true"></i></span><h3>Oil &amp; gas</h3><p>Asset, supply-chain, safety, and compliance operations.</p></article>
+                    <article class="glass-card industry-card animate-on-scroll"><span class="card-icon"><i class="fa-solid fa-building-columns" aria-hidden="true"></i></span><h3>Banking &amp; finance</h3><p>Secure financial operations and data-led risk management.</p></article>
+                    <article class="glass-card industry-card animate-on-scroll"><span class="card-icon"><i class="fa-solid fa-store" aria-hidden="true"></i></span><h3>Retail</h3><p>Unified commerce, inventory, and fulfilment management.</p></article>
+                    <article class="glass-card industry-card animate-on-scroll"><span class="card-icon"><i class="fa-solid fa-landmark" aria-hidden="true"></i></span><h3>Government</h3><p>Digital citizen services and efficient public operations.</p></article>
+                    <article class="glass-card industry-card animate-on-scroll"><span class="card-icon"><i class="fa-solid fa-staff-snake" aria-hidden="true"></i></span><h3>Healthcare</h3><p>Connected patient care and resilient hospital operations.</p></article>
+                    <article class="glass-card industry-card animate-on-scroll"><span class="card-icon"><i class="fa-solid fa-industry" aria-hidden="true"></i></span><h3>Manufacturing</h3><p>Lean production, visibility, and better quality control.</p></article>
+                    <article class="glass-card industry-card animate-on-scroll"><span class="card-icon"><i class="fa-solid fa-tower-cell" aria-hidden="true"></i></span><h3>Telecom</h3><p>Complex billing, network systems, and subscriber experience.</p></article>
+                    <article class="glass-card industry-card animate-on-scroll"><span class="card-icon"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></span><h3>Education</h3><p>Modern campus management and digital learning.</p></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section--muted">
+            <div class="container">
+                <div class="section-heading animate-on-scroll"><p class="eyebrow">Client success</p><h2>Partnerships that create momentum</h2></div>
+                <div class="grid grid--3">
+                    <article class="glass-card testimonial animate-on-scroll"><span class="card-icon card-icon--orange"><i class="fa-solid fa-quote-left" aria-hidden="true"></i></span><blockquote>“Inforabia's Oracle Cloud ERP expertise was instrumental in our digital transformation and in improving our financial processes.”</blockquote><cite>Ahmed Al-Farsi<span>CFO, Regional Retail Group</span></cite></article>
+                    <article class="glass-card testimonial animate-on-scroll"><span class="card-icon card-icon--orange"><i class="fa-solid fa-quote-left" aria-hidden="true"></i></span><blockquote>“Their proactive managed-services approach has reduced downtime and given our team real peace of mind.”</blockquote><cite>Sarah Hassan<span>IT Director, Healthcare Innovations</span></cite></article>
+                    <article class="glass-card testimonial animate-on-scroll"><span class="card-icon card-icon--orange"><i class="fa-solid fa-quote-left" aria-hidden="true"></i></span><blockquote>“Inforabia executed our cloud migration strategy with zero disruption to daily operations.”</blockquote><cite>Tariq Mahmoud<span>CTO, Future Manufacturing Co.</span></cite></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section cta">
+            <div class="container animate-on-scroll"><p class="eyebrow">Start a conversation</p><h2>Ready to transform your business?</h2><p>Tell us about your goals and we’ll help map the right next step for your technology landscape.</p><a class="btn btn-primary" href="bookings.html">Book a consultation <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <section class="footer-brand" aria-label="Inforabia"><a class="logo" href="index.html"><img src="https://img1.wsimg.com/isteam/ip/641b16bf-0aca-44a9-8d2c-d4f57fdf78f0/Inforabia.jpg" alt="Inforabia"></a><p>Accelerating digital success through innovative IT solutions and expert Oracle consultancy.</p><div class="social-links"><a href="https://www.facebook.com/InforabiaSolutions/" target="_blank" rel="noopener noreferrer" aria-label="Inforabia on Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a><a href="https://x.com/InforabiaS47042" target="_blank" rel="noopener noreferrer" aria-label="Inforabia on X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a><a href="https://www.instagram.com/inforabia_solutions/" target="_blank" rel="noopener noreferrer" aria-label="Inforabia on Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a><a href="https://linkedin.com/company/inforabia" target="_blank" rel="noopener noreferrer" aria-label="Inforabia on LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a><a href="https://www.youtube.com/@inforabiasolutions" target="_blank" rel="noopener noreferrer" aria-label="Inforabia on YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></div></section>
+            <section><h2>Explore</h2><ul class="footer-links"><li><a href="about.html">About us</a></li><li><a href="services.html">Services</a></li><li><a href="bookings.html">Book a consultation</a></li><li><a href="auth.html">Client access</a></li></ul></section>
+            <section><h2>Contact</h2><ul class="contact-list"><li><i class="fa-solid fa-envelope" aria-hidden="true"></i><a href="mailto:Info@inforabia.com">Info@inforabia.com</a></li><li><i class="fa-solid fa-phone" aria-hidden="true"></i><a href="tel:+966545220713">+966 54 522 0713</a></li><li><i class="fa-solid fa-location-dot" aria-hidden="true"></i><span>7306 King Fahad St, Al Wisham Dist, Riyadh</span></li></ul></section>
         </div>
-    </section>
-
-    <!-- STATISTICS SECTION -->
-    <section class="stats-section section-padding text-center" style="background: linear-gradient(135deg, rgba(20,20,20,0.8), rgba(40,40,40,0.9)); border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1);">
-        <div class="container">
-            <div class="grid grid-4" style="gap: 2rem;">
-                <div class="stat-item animate-on-scroll">
-                    <h2 class="text-gradient" style="font-size: 3rem; margin-bottom: 0.5rem;">100+</h2>
-                    <p class="text-muted" style="font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Enterprise Clients Served</p>
-                </div>
-                <div class="stat-item animate-on-scroll" style="transition-delay: 0.1s;">
-                    <h2 class="text-gradient" style="font-size: 3rem; margin-bottom: 0.5rem;">500+</h2>
-                    <p class="text-muted" style="font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Oracle Implementations</p>
-                </div>
-                <div class="stat-item animate-on-scroll" style="transition-delay: 0.2s;">
-                    <h2 class="text-gradient" style="font-size: 3rem; margin-bottom: 0.5rem;">15+</h2>
-                    <p class="text-muted" style="font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Years of Excellence</p>
-                </div>
-                <div class="stat-item animate-on-scroll" style="transition-delay: 0.3s;">
-                    <h2 class="text-gradient" style="font-size: 3rem; margin-bottom: 0.5rem;">98%</h2>
-                    <p class="text-muted" style="font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Client Satisfaction Rate</p>
-                </div>
-                <div class="stat-item animate-on-scroll" style="transition-delay: 0.4s;">
-                    <h2 class="text-gradient" style="font-size: 3rem; margin-bottom: 0.5rem;">200+</h2>
-                    <p class="text-muted" style="font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Certified Professionals</p>
-                </div>
-                <div class="stat-item animate-on-scroll" style="transition-delay: 0.5s;">
-                    <h2 class="text-gradient" style="font-size: 3rem; margin-bottom: 0.5rem;">10+</h2>
-                    <p class="text-muted" style="font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Countries Served</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- INDUSTRIES WE SERVE SECTION -->
-    <section class="industries-section section-padding">
-        <div class="container">
-            <div class="section-header text-center animate-on-scroll">
-                <h2 class="section-title">Industries We Serve</h2>
-                <p class="section-desc text-muted">Delivering tailored solutions across diverse enterprise sectors.</p>
-            </div>
-            <div class="grid grid-4" style="gap: 1.5rem;">
-                <div class="glass-card industry-card text-center animate-on-scroll">
-                    <i class="fa-solid fa-oil-well text-gradient" style="font-size: 2.5rem; margin-bottom: 1rem;"></i>
-                    <h4>Oil & Gas</h4>
-                    <p class="text-muted" style="font-size: 0.9rem;">Streamlining asset management and complex supply chains. Enhancing operational safety and regulatory compliance.</p>
-                </div>
-                <div class="glass-card industry-card text-center animate-on-scroll">
-                    <i class="fa-solid fa-building-columns text-gradient" style="font-size: 2.5rem; margin-bottom: 1rem;"></i>
-                    <h4>Banking & Finance</h4>
-                    <p class="text-muted" style="font-size: 0.9rem;">Modernizing core banking systems and financial operations. Ensuring stringent data security and risk management.</p>
-                </div>
-                <div class="glass-card industry-card text-center animate-on-scroll">
-                    <i class="fa-solid fa-store text-gradient" style="font-size: 2.5rem; margin-bottom: 1rem;"></i>
-                    <h4>Retail & E-Commerce</h4>
-                    <p class="text-muted" style="font-size: 0.9rem;">Creating unified omnichannel customer experiences. Optimizing inventory and intelligent order fulfillment.</p>
-                </div>
-                <div class="glass-card industry-card text-center animate-on-scroll">
-                    <i class="fa-solid fa-landmark text-gradient" style="font-size: 2.5rem; margin-bottom: 1rem;"></i>
-                    <h4>Government & Public Sector</h4>
-                    <p class="text-muted" style="font-size: 0.9rem;">Driving digital citizen services and e-governance. Improving transparency, efficiency, and resource allocation.</p>
-                </div>
-                <div class="glass-card industry-card text-center animate-on-scroll">
-                    <i class="fa-solid fa-staff-snake text-gradient" style="font-size: 2.5rem; margin-bottom: 1rem;"></i>
-                    <h4>Healthcare</h4>
-                    <p class="text-muted" style="font-size: 0.9rem;">Integrating patient care systems and electronic health records. Optimizing hospital supply chain operations.</p>
-                </div>
-                <div class="glass-card industry-card text-center animate-on-scroll">
-                    <i class="fa-solid fa-industry text-gradient" style="font-size: 2.5rem; margin-bottom: 1rem;"></i>
-                    <h4>Manufacturing</h4>
-                    <p class="text-muted" style="font-size: 0.9rem;">Implementing lean production methodologies and IoT integration. Enhancing quality control and factory floor visibility.</p>
-                </div>
-                <div class="glass-card industry-card text-center animate-on-scroll">
-                    <i class="fa-solid fa-tower-cell text-gradient" style="font-size: 2.5rem; margin-bottom: 1rem;"></i>
-                    <h4>Telecommunications</h4>
-                    <p class="text-muted" style="font-size: 0.9rem;">Managing complex billing systems and network infrastructure. Delivering superior subscriber experiences and retention.</p>
-                </div>
-                <div class="glass-card industry-card text-center animate-on-scroll">
-                    <i class="fa-solid fa-graduation-cap text-gradient" style="font-size: 2.5rem; margin-bottom: 1rem;"></i>
-                    <h4>Education</h4>
-                    <p class="text-muted" style="font-size: 0.9rem;">Modernizing campus management and student information systems. Enabling effective digital learning environments.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- TESTIMONIALS SECTION -->
-    <section class="testimonials-section section-padding" style="background: rgba(20, 20, 20, 0.5);">
-        <div class="container">
-            <div class="section-header text-center animate-on-scroll">
-                <h2 class="section-title">Client Success Stories</h2>
-                <p class="section-desc text-muted">Hear from the enterprises that have partnered with us.</p>
-            </div>
-            <div class="grid grid-3">
-                <div class="glass-card testimonial-card animate-on-scroll">
-                    <div class="quote-icon" style="margin-bottom: 1rem;"><i class="fa-solid fa-quote-left text-gradient" style="font-size: 2rem;"></i></div>
-                    <p class="text-muted" style="font-style: italic; margin-bottom: 1.5rem;">
-                        "Inforabia's expertise in Oracle Cloud ERP was instrumental in our digital transformation journey. They delivered the project on time and significantly optimized our financial processes. Highly recommended partner for any enterprise in the region."
-                    </p>
-                    <div class="client-info" style="display: flex; align-items: center; gap: 1rem;">
-                        <img src="https://ui-avatars.com/api/?name=Ahmed+Al-Farsi&background=random" alt="Ahmed Al-Farsi" style="border-radius: 50%; width: 50px; height: 50px;">
-                        <div>
-                            <h5 style="margin: 0; font-size: 1rem;">Ahmed Al-Farsi</h5>
-                            <span class="text-muted" style="font-size: 0.8rem;">CFO, Regional Retail Group</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="glass-card testimonial-card animate-on-scroll">
-                    <div class="quote-icon" style="margin-bottom: 1rem;"><i class="fa-solid fa-quote-left text-gradient" style="font-size: 2rem;"></i></div>
-                    <p class="text-muted" style="font-style: italic; margin-bottom: 1.5rem;">
-                        "The managed services provided by Inforabia have given us incredible peace of mind. Their 24/7 support team is always responsive, and their proactive approach has drastically reduced our system downtime. True professionals."
-                    </p>
-                    <div class="client-info" style="display: flex; align-items: center; gap: 1rem;">
-                        <img src="https://ui-avatars.com/api/?name=Sarah+Hassan&background=random" alt="Sarah Hassan" style="border-radius: 50%; width: 50px; height: 50px;">
-                        <div>
-                            <h5 style="margin: 0; font-size: 1rem;">Sarah Hassan</h5>
-                            <span class="text-muted" style="font-size: 0.8rem;">IT Director, Healthcare Innovations</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="glass-card testimonial-card animate-on-scroll">
-                    <div class="quote-icon" style="margin-bottom: 1rem;"><i class="fa-solid fa-quote-left text-gradient" style="font-size: 2rem;"></i></div>
-                    <p class="text-muted" style="font-style: italic; margin-bottom: 1.5rem;">
-                        "Migrating our legacy infrastructure to the cloud seemed daunting until we partnered with Inforabia. Their cloud architecture team executed a flawless migration strategy with zero disruption to our daily operations."
-                    </p>
-                    <div class="client-info" style="display: flex; align-items: center; gap: 1rem;">
-                        <img src="https://ui-avatars.com/api/?name=Tariq+Mahmoud&background=random" alt="Tariq Mahmoud" style="border-radius: 50%; width: 50px; height: 50px;">
-                        <div>
-                            <h5 style="margin: 0; font-size: 1rem;">Tariq Mahmoud</h5>
-                            <span class="text-muted" style="font-size: 0.8rem;">CTO, Future Manufacturing Co.</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA BANNER SECTION -->
-    <section class="cta-banner text-center" style="padding: 5rem 2rem; background: linear-gradient(135deg, rgba(30,30,30,0.9), rgba(10,10,10,1)); border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
-        <div class="container animate-on-scroll">
-            <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Ready to Transform Your Business?</h2>
-            <p class="text-muted" style="margin-bottom: 2rem; font-size: 1.2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-                Partner with Inforabia to leverage the full power of Oracle solutions and modern IT infrastructure. Let's build the future together.
-            </p>
-            <a href="bookings.html" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2.5rem;">Book a Consultation Now</a>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="footer" style="background: #0a0a0a; padding-top: 4rem; padding-bottom: 2rem; border-top: 1px solid rgba(255,255,255,0.05);">
-        <div class="container">
-            <div class="grid grid-4" style="gap: 2rem; margin-bottom: 3rem;">
-                <!-- Brand Col -->
-                <div class="footer-col">
-                    <img src="https://img1.wsimg.com/isteam/ip/641b16bf-0aca-44a9-8d2c-d4f57fdf78f0/Inforabia.jpg" alt="Inforabia Logo" style="width: 150px; margin-bottom: 1rem; border-radius: 4px;">
-                    <p class="text-muted" style="margin-bottom: 1.5rem;">Accelerating your digital success through innovative IT solutions and expert Oracle consultancy.</p>
-                    <div class="social-links" style="display: flex; gap: 1rem;">
-                        <a href="https://www.facebook.com/InforabiaSolutions/#" target="_blank" style="color: #fff; font-size: 1.2rem; transition: color 0.3s;"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="https://x.com/InforabiaS47042" target="_blank" style="color: #fff; font-size: 1.2rem; transition: color 0.3s;"><i class="fa-brands fa-twitter"></i></a>
-                        <a href="https://www.instagram.com/inforabia_solutions/" target="_blank" style="color: #fff; font-size: 1.2rem; transition: color 0.3s;"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="https://linkedin.com/company/inforabia" target="_blank" style="color: #fff; font-size: 1.2rem; transition: color 0.3s;"><i class="fa-brands fa-linkedin"></i></a>
-                        <a href="https://www.youtube.com/@inforabiasolutions" target="_blank" style="color: #fff; font-size: 1.2rem; transition: color 0.3s;"><i class="fa-brands fa-youtube"></i></a>
-                    </div>
-                </div>
-                
-                <!-- Quick Links -->
-                <div class="footer-col">
-                    <h4 style="margin-bottom: 1.5rem; font-size: 1.2rem;">Quick Links</h4>
-                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem;">
-                        <li><a href="index.html" class="text-muted" style="text-decoration: none; transition: color 0.3s;">Home</a></li>
-                        <li><a href="about.html" class="text-muted" style="text-decoration: none; transition: color 0.3s;">About Us</a></li>
-                        <li><a href="services.html" class="text-muted" style="text-decoration: none; transition: color 0.3s;">Services</a></li>
-                        <li><a href="bookings.html" class="text-muted" style="text-decoration: none; transition: color 0.3s;">Bookings</a></li>
-                        <li><a href="auth.html" class="text-muted" style="text-decoration: none; transition: color 0.3s;">Account</a></li>
-                    </ul>
-                </div>
-
-                <!-- Services -->
-                <div class="footer-col">
-                    <h4 style="margin-bottom: 1.5rem; font-size: 1.2rem;">Our Services</h4>
-                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem;">
-                        <li><a href="services.html" class="text-muted" style="text-decoration: none; transition: color 0.3s;">Oracle ERP Cloud</a></li>
-                        <li><a href="services.html" class="text-muted" style="text-decoration: none; transition: color 0.3s;">Cloud Migration</a></li>
-                        <li><a href="services.html" class="text-muted" style="text-decoration: none; transition: color 0.3s;">Managed IT Services</a></li>
-                        <li><a href="services.html" class="text-muted" style="text-decoration: none; transition: color 0.3s;">Digital Transformation</a></li>
-                        <li><a href="services.html" class="text-muted" style="text-decoration: none; transition: color 0.3s;">Consulting</a></li>
-                    </ul>
-                </div>
-
-                <!-- Contact -->
-                <div class="footer-col">
-                    <h4 style="margin-bottom: 1.5rem; font-size: 1.2rem;">Contact Us</h4>
-                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 1rem;">
-                        <li style="display: flex; gap: 1rem; align-items: flex-start;">
-                            <i class="fa-solid fa-location-dot text-gradient" style="margin-top: 0.3rem;"></i>
-                            <span class="text-muted">7306 King Fahad St Al Wisham Dist Riyadh</span>
-                        </li>
-                        <li style="display: flex; gap: 1rem; align-items: center;">
-                            <i class="fa-solid fa-phone text-gradient"></i>
-                            <span class="text-muted">+966 54 522 0713</span>
-                        </li>
-                        <li style="display: flex; gap: 1rem; align-items: center;">
-                            <i class="fa-solid fa-envelope text-gradient"></i>
-                            <span class="text-muted">Info@inforabia.com</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-bottom text-center text-muted" style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 2rem; font-size: 0.9rem;">
-                <p>&copy; 2026 Inforabia Solutions and Consultancy. All rights reserved.</p>
-            </div>
-        </div>
+        <div class="container footer-bottom"><p>&copy; 2026 Inforabia Solutions and Consultancy. All rights reserved.</p></div>
     </footer>
-
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Inforabia Solutions and Consultancy",
+        "image": "https://img1.wsimg.com/isteam/ip/641b16bf-0aca-44a9-8d2c-d4f57fdf78f0/Inforabia.jpg",
+        "@id": "https://inforabia.com/",
+        "url": "https://inforabia.com/",
+        "telephone": "+966545220713",
+        "email": "Info@inforabia.com",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "7306 King Fahad St",
+            "addressLocality": "Al Wisham Dist",
+            "addressRegion": "Riyadh",
+            "addressCountry": "SA"
+        },
+        "areaServed": ["Saudi Arabia", "Egypt", "United Arab Emirates", "Middle East and North Africa"],
+        "sameAs": [
+            "https://www.facebook.com/InforabiaSolutions/",
+            "https://www.instagram.com/inforabia_solutions/",
+            "https://www.linkedin.com/company/inforabia",
+            "https://www.youtube.com/@inforabiasolutions"
+        ]
+    }
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
