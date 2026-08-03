@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Settings - Inforabia</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/css/intlTelInput.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar" aria-label="Primary navigation">
+        <div class="container nav-container">
+            <a class="logo" href="index.html" aria-label="Inforabia home"><img src="https://img1.wsimg.com/isteam/ip/641b16bf-0aca-44a9-8d2c-d4f57fdf78f0/Inforabia.jpg" alt="Inforabia"></a>
+            <ul class="nav-links" id="primary-menu" data-nav-links data-open="false">
+                <li><a class="nav-link" href="index.html">Home</a></li>
+                <li><a class="nav-link" href="about.html">About us</a></li>
+                <li><a class="nav-link" href="services.html">Services</a></li>
+                <li><a class="nav-link" href="bookings.html">Bookings</a></li>
+                <li class="mobile-client-access"><a class="btn btn-primary" href="auth.html"><i class="fa-solid fa-user-circle" aria-hidden="true"></i> Client access</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a class="whatsapp-link" href="https://wa.me/966545220713?text=Hello%20Inforabia%2C%20I%20would%20like%20to%20inquire%20about%20your%20services." target="_blank" rel="noopener noreferrer" aria-label="Contact Inforabia on WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+                <a class="btn btn-primary desktop-client-access" href="auth.html"><i class="fa-solid fa-user-circle" aria-hidden="true"></i> Client access</a>
+                <button class="nav-toggle" type="button" aria-label="Open menu" aria-controls="primary-menu" aria-expanded="false" data-nav-toggle><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <header class="page-hero" style="min-height: 40vh; align-items: flex-end; padding-bottom: 3rem;">
+            <div class="container hero-content animate-on-scroll">
+                <p class="eyebrow">Settings</p>
+                <h1>My <span class="text-gradient">Account</span></h1>
+            </div>
+        </header>
+
+        <section class="section">
+            <div class="container" style="max-width: 40rem; margin: 0 auto;">
+                <div class="glass-card animate-on-scroll">
+                    <div style="display: flex; align-items: center; gap: 1.5rem; border-bottom: 1px solid var(--glass-border); padding-bottom: 2rem; margin-bottom: 2rem;">
+                        <div style="width: 5rem; height: 5rem; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; font-size: 2rem; color: var(--clr-teal);">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <div>
+                            <h2 style="margin: 0; font-size: 1.5rem;" id="display-name">Loading...</h2>
+                            <p class="text-muted" style="margin-top: 0.25rem;">Manage your profile and preferences.</p>
+                        </div>
+                    </div>
+                    
+                    <form id="account-form">
+                        <div class="form-group">
+                            <label for="acc-name">Full name</label>
+                            <input id="acc-name" type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="acc-email">Email address</label>
+                            <input id="acc-email" type="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="acc-phone">Phone number</label>
+                            <input id="acc-phone" type="tel">
+                        </div>
+                        <div class="form-group">
+                            <label for="acc-password">Change Password</label>
+                            <input id="acc-password" type="password" placeholder="Leave blank to keep current password">
+                        </div>
+                        
+                        <div style="margin-top: 2rem; display: flex; gap: 1rem;">
+                            <button type="submit" class="btn btn-primary" style="flex: 1;">Save Changes</button>
+                            <a href="auth.html" class="btn btn-secondary">Cancel</a>
+                        </div>
+                        <p class="form-status" id="account-status" aria-live="polite" style="margin-top: 1rem; text-align: center;"></p>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <section class="footer-brand" aria-label="Inforabia">
+                <a class="logo" href="index.html">
+                    <img src="https://img1.wsimg.com/isteam/ip/641b16bf-0aca-44a9-8d2c-d4f57fdf78f0/Inforabia.jpg" alt="Inforabia">
+                </a>
+                <p>Accelerating digital success through innovative IT solutions and expert Oracle consultancy.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/InforabiaSolutions/" target="_blank" rel="noopener noreferrer" aria-label="Inforabia on Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+                    <a href="https://x.com/InforabiaS47042" target="_blank" rel="noopener noreferrer" aria-label="Inforabia on X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+                    <a href="https://www.instagram.com/inforabia_solutions/" target="_blank" rel="noopener noreferrer" aria-label="Inforabia on Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+                    <a href="https://linkedin.com/company/inforabia" target="_blank" rel="noopener noreferrer" aria-label="Inforabia on LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+                    <a href="https://www.youtube.com/@inforabiasolutions" target="_blank" rel="noopener noreferrer" aria-label="Inforabia on YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+                </div>
+            </section>
+            <section>
+                <h2>Explore</h2>
+                <ul class="footer-links">
+                    <li><a href="about.html">About us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="bookings.html">Book a consultation</a></li>
+                    <li><a href="auth.html">Client access</a></li>
+                </ul>
+            </section>
+            <section>
+                <h2>Contact</h2>
+                <ul class="contact-list">
+                    <li><i class="fa-solid fa-envelope" aria-hidden="true"></i><a href="mailto:Info@inforabia.com">Info@inforabia.com</a></li>
+                    <li><i class="fa-solid fa-phone" aria-hidden="true"></i><a href="tel:+966545220713">+966 54 522 0713</a></li>
+                    <li><i class="fa-solid fa-location-dot" aria-hidden="true"></i><span>7306 King Fahad St, Al Wisham Dist, Riyadh</span></li>
+                </ul>
+            </section>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Inforabia Solutions and Consultancy. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/intlTelInput.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Account Page Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const user = JSON.parse(localStorage.getItem('inforabiaUser'));
+            if (!user) {
+                window.location.href = 'auth.html'; // Redirect to login if not authenticated
+                return;
+            }
+            
+            // Populate form
+            document.getElementById('display-name').textContent = user.name;
+            document.getElementById('acc-name').value = user.name;
+            document.getElementById('acc-email').value = user.email;
+            document.getElementById('acc-phone').value = user.phone || '';
+            
+            const accPhoneInput = document.querySelector("#acc-phone");
+            if (accPhoneInput && window.intlTelInput) {
+                window.intlTelInput(accPhoneInput, {
+                    initialCountry: "qa",
+                    utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js"
+                });
+            }
+            
+            // Handle save
+            const form = document.getElementById('account-form');
+            const status = document.getElementById('account-status');
+            
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                const newName = document.getElementById('acc-name').value;
+                const newEmail = document.getElementById('acc-email').value;
+                const newPhone = document.getElementById('acc-phone').value;
+                const newPassword = document.getElementById('acc-password').value;
+                
+                // Update local DB
+                const updatedUser = {
+                    name: newName,
+                    email: newEmail,
+                    phone: newPhone,
+                    password: newPassword || user.password // Keep old if blank
+                };
+                
+                localStorage.setItem('inforabiaUser', JSON.stringify(updatedUser));
+                localStorage.setItem('inforabiaMockDB', JSON.stringify(updatedUser));
+                
+                status.dataset.state = 'success';
+                status.style.color = '#7fe6b0';
+                status.textContent = 'Profile updated successfully!';
+                document.getElementById('display-name').textContent = newName;
+                
+                // Trigger nav update
+                setTimeout(() => window.location.href = window.location.pathname, 1000);
+            });
+        });
+    </script>
+</body>
+</html>

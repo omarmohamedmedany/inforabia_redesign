@@ -157,15 +157,159 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    document.querySelectorAll('[data-auth-form]').forEach((form) => {
-        form.addEventListener('submit', (event) => {
-            event.preventDefault();
-            if (!form.reportValidity()) return;
-            const status = form.querySelector('[data-form-status]');
-            if (status) {
-                status.dataset.state = 'error';
-                status.textContent = 'The secure client portal is not connected yet. Please contact us to request account access.';
+    // -----------------------------------------
+    // Mock Authentication System (localStorage)
+    // -----------------------------------------
+    const currentUser = JSON.parse(localStorage.getItem('inforabiaUser'));
+    
+    // 1. Update Global Navigation if logged in
+    if (currentUser) {
+        document.querySelectorAll('.desktop-client-access, .mobile-client-access').forEach(container => {
+            const isMobile = container.classList.contains('mobile-client-access');
+            const targetBtn = isMobile ? container.querySelector('a') : container;
+            
+            if (targetBtn) {
+                const wrapper = document.createElement('div');
+                wrapper.className = 'user-dropdown-container';
+                if (!isMobile) wrapper.style.display = 'inline-block';
+                
+                targetBtn.parentNode.insertBefore(wrapper, targetBtn);
+                wrapper.appendChild(targetBtn);
+                
+                targetBtn.innerHTML = `<i class="fa-solid fa-user-circle" aria-hidden="true"></i> ${currentUser.name.split(' ')[0]}`;
+                targetBtn.href = 'auth.html';
+                
+                const dropdown = document.createElement('div');
+                dropdown.className = 'user-dropdown-menu';
+                if (isMobile) dropdown.style.position = 'static'; // Better for mobile menus
+                
+                dropdown.innerHTML = `
+                    <a href="account.html"><i class="fa-solid fa-gear"></i> Account</a>
+                    <a href="#" class="global-sign-out"><i class="fa-solid fa-sign-out-alt"></i> Sign out</a>
+                `;
+                wrapper.appendChild(dropdown);
             }
         });
-    });
+        
+        document.addEventListener('click', (e) => {
+            if (e.target.closest('.global-sign-out')) {
+                e.preventDefault();
+                localStorage.removeItem('inforabiaUser');
+                window.location.href = window.location.pathname;
+            }
+        });
+    }
+
+    // 2. Handle auth.html view (Forms vs Dashboard)
+    const authForms = document.getElementById('auth-forms');
+    const dashboardView = document.getElementById('dashboard-view');
+    
+    if (authForms && dashboardView) {
+        if (currentUser) {
+            authForms.style.display = 'none';
+            dashboardView.style.display = 'block';
+            
+            const nameDisplay = document.getElementById('user-name-display');
+            if (nameDisplay) nameDisplay.textContent = currentUser.name.split(' ')[0];
+            
+            const greetingText = document.getElementById('greeting-text');
+            if (greetingText) {
+                greetingText.textContent = currentUser.isFirstTime ? 'Hi' : 'Welcome back';
+            }
+            
+            const signOutBtn = document.getElementById('sign-out-btn');
+            if (signOutBtn) {
+                signOutBtn.addEventListener('click', () => {
+                    localStorage.removeItem('inforabiaUser');
+                    window.location.href = window.location.pathname;
+                });
+            }
+        } else {
+            authForms.style.display = 'grid';
+            dashboardView.style.display = 'none';
+            
+            // Sign In Logic
+            const signInForm = document.getElementById('sign-in-form');
+            if (signInForm) {
+                signInForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    if (!signInForm.reportValidity()) return;
+                    
+                    const email = signInForm.querySelector('[name="email"]').value;
+                    const password = signInForm.querySelector('[name="password"]').value;
+                    const status = signInForm.querySelector('[data-form-status]');
+                    
+                    // We only support 1 saved user for this prototype
+                    const savedUser = JSON.parse(localStorage.getItem('inforabiaMockDB') || 'null');
+                    
+                    if (savedUser && savedUser.email === email && savedUser.password === password) {
+                        savedUser.isFirstTime = false; // Mark as returning
+                        localStorage.setItem('inforabiaMockDB', JSON.stringify(savedUser));
+                        localStorage.setItem('inforabiaUser', JSON.stringify(savedUser));
+                        window.location.href = window.location.pathname;
+                    } else {
+                        if (status) {
+                            status.dataset.state = 'error';
+                            status.textContent = 'Invalid email or password. Please try again.';
+                        }
+                    }
+                });
+            }
+            
+            // Sign Up Logic
+            const signUpForm = document.getElementById('sign-up-form');
+            if (signUpForm) {
+                signUpForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    if (!signUpForm.reportValidity()) return;
+                    
+                    const name = signUpForm.querySelector('[name="name"]').value;
+                    const email = signUpForm.querySelector('[name="email"]').value;
+                    const phone = signUpForm.querySelector('[name="phone"]').value;
+                    const password = signUpForm.querySelector('[name="password"]').value;
+                    
+                    const newUser = { name, email, phone, password, isFirstTime: true };
+                    
+                    // Save to our "Database" and automatically log in
+                    localStorage.setItem('inforabiaMockDB', JSON.stringify(newUser));
+                    localStorage.setItem('inforabiaUser', JSON.stringify(newUser));
+                    
+                    window.location.href = window.location.pathname;
+                });
+            }
+            // Social Login Mock
+            document.querySelectorAll('[data-social-auth]').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const provider = btn.dataset.socialAuth;
+                    const providerName = provider.charAt(0).toUpperCase() + provider.slice(1);
+                    const savedUser = JSON.parse(localStorage.getItem('inforabiaMockDB') || 'null');
+                    
+                    let userToLogin;
+                    if (savedUser && savedUser.email === `user@${provider}.com`) {
+                        userToLogin = { ...savedUser, isFirstTime: false };
+                    } else {
+                        userToLogin = { 
+                            name: `${providerName} User`, 
+                            email: `user@${provider}.com`, 
+                            phone: '', 
+                            password: '',
+                            isFirstTime: true
+                        };
+                    }
+                    
+                    localStorage.setItem('inforabiaMockDB', JSON.stringify(userToLogin));
+                    localStorage.setItem('inforabiaUser', JSON.stringify(userToLogin));
+                    window.location.href = window.location.pathname;
+                });
+            });
+        }
+    }
+
+    const phoneInput = document.querySelector("#request-phone");
+    if (phoneInput && window.intlTelInput) {
+        window.intlTelInput(phoneInput, {
+            utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js",
+            initialCountry: "qa"
+        });
+    }
 });
