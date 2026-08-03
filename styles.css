@@ -150,7 +150,7 @@ p:last-child { margin-bottom: 0; }
 .feature-list li { display: grid; grid-template-columns: 1.25rem 1fr; gap: 0.8rem; align-items: start; }
 .feature-list i { margin-top: 0.25rem; color: var(--clr-orange-light); }
 .feature-list strong { display: block; margin-bottom: 0.15rem; }
-.stats { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 1rem; }
+.stats { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 1rem; }
 .stat { text-align: center; }
 .stat strong { display: block; color: var(--clr-orange-light); font-size: clamp(2rem, 4vw, 3rem); line-height: 1; }
 .stat span { display: block; margin-top: 0.7rem; color: var(--text-muted); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
@@ -222,9 +222,25 @@ select option { color: #111827; }
 .footer-bottom { padding: 1.2rem 0; border-top: 1px solid var(--glass-border); text-align: center; }
 .footer-bottom p { margin: 0; font-size: 0.88rem; }
 
-.animate-on-scroll { opacity: 1; transform: none; }
-.has-js .animate-on-scroll { opacity: 0; filter: blur(0.35rem); transform: translate3d(0, 1.5rem, 0); transition: opacity 580ms ease, filter 580ms ease, transform 720ms cubic-bezier(0.16, 1, 0.3, 1); transition-delay: var(--reveal-delay, 0ms); will-change: opacity, filter, transform; }
-.has-js .animate-on-scroll.is-visible { opacity: 1; filter: blur(0); transform: translate3d(0, 0, 0); }
+/* =========================================
+   Masterpiece Animations
+   ========================================= */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(60px) scale(0.95);
+    transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+}
+
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.delay-100 { transition-delay: 150ms; }
+.delay-200 { transition-delay: 300ms; }
+.delay-300 { transition-delay: 450ms; }
 
 @media (max-width: 72rem) {
     .nav-links { gap: 1rem; }

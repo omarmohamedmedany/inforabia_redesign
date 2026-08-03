@@ -46,13 +46,48 @@ document.addEventListener('DOMContentLoaded', () => {
         element.style.setProperty('--reveal-delay', `${Math.min(Math.max(index, 0) * 80, 320)}ms`);
     });
 
+    const animateValue = (obj, start, end, duration) => {
+        let startTimestamp = null;
+        const step = (timestamp) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+            const easeProgress = progress * (2 - progress);
+            obj.innerHTML = Math.floor(easeProgress * (end - start) + start) + (obj.dataset.suffix || '');
+            if (progress < 1) {
+                window.requestAnimationFrame(step);
+            }
+        };
+        window.requestAnimationFrame(step);
+    };
+
     if (reducedMotion || !('IntersectionObserver' in window)) {
         animatedElements.forEach(revealElement);
     } else {
+        document.querySelectorAll('.stat strong').forEach(el => {
+            const text = el.innerText;
+            const match = text.match(/(\d+)(.*)/);
+            if (match) {
+                el.dataset.target = match[1];
+                el.dataset.suffix = match[2];
+                el.innerText = '0' + match[2];
+            }
+        });
+
         const observer = new IntersectionObserver((entries, currentObserver) => {
             entries.forEach((entry) => {
                 if (!entry.isIntersecting) return;
                 revealElement(entry.target);
+                
+                if (entry.target.classList.contains('stat')) {
+                    const strong = entry.target.querySelector('strong');
+                    if (strong && strong.dataset.target) {
+                        setTimeout(() => {
+                            animateValue(strong, 0, parseInt(strong.dataset.target, 10), 2000);
+                            delete strong.dataset.target;
+                        }, 200);
+                    }
+                }
+                
                 currentObserver.unobserve(entry.target);
             });
         }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
