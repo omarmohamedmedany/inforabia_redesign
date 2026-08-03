@@ -37,17 +37,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const animatedElements = document.querySelectorAll('.animate-on-scroll');
+    const revealElement = (element) => element.classList.add('is-visible');
+
+    animatedElements.forEach((element) => {
+        const parent = element.parentElement;
+        const siblings = parent ? Array.from(parent.children).filter((child) => child.classList.contains('animate-on-scroll')) : [];
+        const index = siblings.indexOf(element);
+        element.style.setProperty('--reveal-delay', `${Math.min(Math.max(index, 0) * 80, 320)}ms`);
+    });
+
     if (reducedMotion || !('IntersectionObserver' in window)) {
-        animatedElements.forEach((element) => element.classList.add('is-visible'));
+        animatedElements.forEach(revealElement);
     } else {
         const observer = new IntersectionObserver((entries, currentObserver) => {
             entries.forEach((entry) => {
                 if (!entry.isIntersecting) return;
-                entry.target.classList.add('is-visible');
+                revealElement(entry.target);
                 currentObserver.unobserve(entry.target);
             });
-        }, { threshold: 0.12 });
+        }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
         animatedElements.forEach((element) => observer.observe(element));
+
+        window.setTimeout(() => animatedElements.forEach(revealElement), 1400);
     }
 
     const tabs = document.querySelectorAll('[role="tab"]');
