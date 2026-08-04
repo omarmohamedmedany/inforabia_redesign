@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account Settings - Inforabia</title>
+    <link rel="icon" type="image/jpeg" href="https://img1.wsimg.com/isteam/ip/641b16bf-0aca-44a9-8d2c-d4f57fdf78f0/favicon/7c1272c8-c73b-4bf2-b4f9-a9a1bfaae01d/7c71226e-79e9-4457-97c5-d5421246ef24.jpg">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/css/intlTelInput.css">
     <link rel="stylesheet" href="styles.css">
@@ -39,8 +40,15 @@
             <div class="container" style="max-width: 40rem; margin: 0 auto;">
                 <div class="glass-card animate-on-scroll">
                     <div style="display: flex; align-items: center; gap: 1.5rem; border-bottom: 1px solid var(--glass-border); padding-bottom: 2rem; margin-bottom: 2rem;">
-                        <div style="width: 5rem; height: 5rem; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; font-size: 2rem; color: var(--clr-teal);">
-                            <i class="fa-solid fa-user"></i>
+                        <div style="position: relative;">
+                            <input type="file" id="avatar-upload" accept="image/*" style="display: none;">
+                            <label for="avatar-upload" id="avatar-container" style="cursor: pointer; width: 5rem; height: 5rem; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; font-size: 2rem; color: var(--clr-teal); overflow: hidden; position: relative; border: 2px solid transparent; transition: border-color 0.2s;">
+                                <img id="profile-avatar-preview" src="" style="width: 100%; height: 100%; object-fit: cover; display: none;">
+                                <i class="fa-solid fa-user" id="profile-avatar-icon"></i>
+                                <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.2s;" id="avatar-hover-overlay">
+                                    <i class="fa-solid fa-camera" style="font-size: 1.2rem; color: white;"></i>
+                                </div>
+                            </label>
                         </div>
                         <div>
                             <h2 style="margin: 0; font-size: 1.5rem;" id="display-name">Loading...</h2>
@@ -57,10 +65,7 @@
                             <label for="acc-email">Email address</label>
                             <input id="acc-email" type="email" required>
                         </div>
-                        <div class="form-group">
-                            <label for="acc-phone">Phone number</label>
-                            <input id="acc-phone" type="tel">
-                        </div>
+
                         <div class="form-group">
                             <label for="acc-password">Change Password</label>
                             <input id="acc-password" type="password" placeholder="Leave blank to keep current password">
@@ -68,7 +73,6 @@
                         
                         <div style="margin-top: 2rem; display: flex; gap: 1rem;">
                             <button type="submit" class="btn btn-primary" style="flex: 1;">Save Changes</button>
-                            <a href="auth.html" class="btn btn-secondary">Cancel</a>
                         </div>
                         <p class="form-status" id="account-status" aria-live="polite" style="margin-top: 1rem; text-align: center;"></p>
                     </form>
@@ -130,15 +134,67 @@
             document.getElementById('display-name').textContent = user.name;
             document.getElementById('acc-name').value = user.name;
             document.getElementById('acc-email').value = user.email;
-            document.getElementById('acc-phone').value = user.phone || '';
-            
-            const accPhoneInput = document.querySelector("#acc-phone");
-            if (accPhoneInput && window.intlTelInput) {
-                window.intlTelInput(accPhoneInput, {
-                    initialCountry: "qa",
-                    utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js"
-                });
+            // Populate avatar if exists
+            const avatarPreview = document.getElementById('profile-avatar-preview');
+            const avatarIcon = document.getElementById('profile-avatar-icon');
+            if (user.avatar) {
+                avatarPreview.src = user.avatar;
+                avatarPreview.style.display = 'block';
+                avatarIcon.style.display = 'none';
             }
+            
+            // Handle Avatar Upload
+            let currentAvatarDataUrl = user.avatar || null;
+            const avatarUpload = document.getElementById('avatar-upload');
+            
+            avatarUpload.addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (!file) return;
+                
+                // Limit to 1MB
+                if (file.size > 1024 * 1024) {
+                    alert('Image is too large. Please choose an image under 1MB.');
+                    return;
+                }
+                
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const img = new Image();
+                    img.onload = function() {
+                        // Resize image to max 256x256
+                        const canvas = document.createElement('canvas');
+                        const MAX_SIZE = 256;
+                        let width = img.width;
+                        let height = img.height;
+                        
+                        if (width > height) {
+                            if (width > MAX_SIZE) {
+                                height *= MAX_SIZE / width;
+                                width = MAX_SIZE;
+                            }
+                        } else {
+                            if (height > MAX_SIZE) {
+                                width *= MAX_SIZE / height;
+                                height = MAX_SIZE;
+                            }
+                        }
+                        
+                        canvas.width = width;
+                        canvas.height = height;
+                        const ctx = canvas.getContext('2d');
+                        ctx.drawImage(img, 0, 0, width, height);
+                        
+                        const dataUrl = canvas.toDataURL('image/jpeg', 0.8);
+                        currentAvatarDataUrl = dataUrl;
+                        
+                        avatarPreview.src = dataUrl;
+                        avatarPreview.style.display = 'block';
+                        avatarIcon.style.display = 'none';
+                    };
+                    img.src = event.target.result;
+                };
+                reader.readAsDataURL(file);
+            });
             
             // Handle save
             const form = document.getElementById('account-form');
@@ -149,14 +205,12 @@
                 
                 const newName = document.getElementById('acc-name').value;
                 const newEmail = document.getElementById('acc-email').value;
-                const newPhone = document.getElementById('acc-phone').value;
-                const newPassword = document.getElementById('acc-password').value;
-                
                 // Update local DB
                 const updatedUser = {
+                    ...user,
                     name: newName,
                     email: newEmail,
-                    phone: newPhone,
+                    avatar: currentAvatarDataUrl,
                     password: newPassword || user.password // Keep old if blank
                 };
                 

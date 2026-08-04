@@ -176,7 +176,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 targetBtn.parentNode.insertBefore(wrapper, targetBtn);
                 wrapper.appendChild(targetBtn);
                 
-                targetBtn.innerHTML = `<i class="fa-solid fa-user-circle" aria-hidden="true"></i> ${currentUser.name.split(' ')[0]}`;
+                const avatarHtml = currentUser.avatar 
+                    ? `<img src="${currentUser.avatar}" style="width:1.25rem; height:1.25rem; border-radius:50%; object-fit:cover; margin-right:0.4rem; vertical-align:middle; display:inline-block;">` 
+                    : `<i class="fa-solid fa-user-circle" aria-hidden="true" style="margin-right:0.4rem;"></i>`;
+                targetBtn.innerHTML = `${avatarHtml}${currentUser.name.split(' ')[0]}`;
                 targetBtn.href = 'auth.html';
                 
                 const dropdown = document.createElement('div');
@@ -200,7 +203,27 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2. Handle auth.html view (Forms vs Dashboard)
+    // 2. Services Page Tabs Logic
+    const serviceCategoryBtns = document.querySelectorAll('.service-category-btn');
+    if (serviceCategoryBtns.length > 0) {
+        serviceCategoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons and panels
+                document.querySelectorAll('.service-category-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.service-content-panel').forEach(p => p.classList.remove('active'));
+                
+                // Add active class to clicked button and target panel
+                btn.classList.add('active');
+                const targetId = btn.getAttribute('data-target');
+                const targetPanel = document.getElementById(targetId);
+                if (targetPanel) {
+                    targetPanel.classList.add('active');
+                }
+            });
+        });
+    }
+
+    // 3. Handle auth.html view (Forms vs Dashboard)
     const authForms = document.getElementById('auth-forms');
     const dashboardView = document.getElementById('dashboard-view');
     
@@ -215,14 +238,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const greetingText = document.getElementById('greeting-text');
             if (greetingText) {
                 greetingText.textContent = currentUser.isFirstTime ? 'Hi' : 'Welcome back';
-            }
-            
-            const signOutBtn = document.getElementById('sign-out-btn');
-            if (signOutBtn) {
-                signOutBtn.addEventListener('click', () => {
-                    localStorage.removeItem('inforabiaUser');
-                    window.location.href = window.location.pathname;
-                });
             }
         } else {
             authForms.style.display = 'grid';
@@ -243,7 +258,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     const savedUser = JSON.parse(localStorage.getItem('inforabiaMockDB') || 'null');
                     
                     if (savedUser && savedUser.email === email && savedUser.password === password) {
-                        savedUser.isFirstTime = false; // Mark as returning
+                        // If they have never used the Sign In form before, it's their first manual sign in
+                        if (!savedUser.hasSignedInManually) {
+                            savedUser.isFirstTime = true; // Show 'Hi'
+                            savedUser.hasSignedInManually = true; // Mark that they've signed in manually now
+                        } else {
+                            savedUser.isFirstTime = false; // Show 'Welcome back'
+                        }
+                        
                         localStorage.setItem('inforabiaMockDB', JSON.stringify(savedUser));
                         localStorage.setItem('inforabiaUser', JSON.stringify(savedUser));
                         window.location.href = window.location.pathname;
@@ -263,12 +285,19 @@ document.addEventListener('DOMContentLoaded', () => {
                     e.preventDefault();
                     if (!signUpForm.reportValidity()) return;
                     
+                    const status = signUpForm.querySelector('[data-form-status]');
+                    
                     const name = signUpForm.querySelector('[name="name"]').value;
                     const email = signUpForm.querySelector('[name="email"]').value;
-                    const phone = signUpForm.querySelector('[name="phone"]').value;
                     const password = signUpForm.querySelector('[name="password"]').value;
                     
-                    const newUser = { name, email, phone, password, isFirstTime: true };
+                    const newUser = { 
+                        name, 
+                        email, 
+                        password, 
+                        isFirstTime: true,
+                        hasSignedInManually: false // They just signed up, haven't manually signed in yet
+                    };
                     
                     // Save to our "Database" and automatically log in
                     localStorage.setItem('inforabiaMockDB', JSON.stringify(newUser));
@@ -277,39 +306,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     window.location.href = window.location.pathname;
                 });
             }
-            // Social Login Mock
-            document.querySelectorAll('[data-social-auth]').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const provider = btn.dataset.socialAuth;
-                    const providerName = provider.charAt(0).toUpperCase() + provider.slice(1);
-                    const savedUser = JSON.parse(localStorage.getItem('inforabiaMockDB') || 'null');
-                    
-                    let userToLogin;
-                    if (savedUser && savedUser.email === `user@${provider}.com`) {
-                        userToLogin = { ...savedUser, isFirstTime: false };
-                    } else {
-                        userToLogin = { 
-                            name: `${providerName} User`, 
-                            email: `user@${provider}.com`, 
-                            phone: '', 
-                            password: '',
-                            isFirstTime: true
-                        };
-                    }
-                    
-                    localStorage.setItem('inforabiaMockDB', JSON.stringify(userToLogin));
-                    localStorage.setItem('inforabiaUser', JSON.stringify(userToLogin));
-                    window.location.href = window.location.pathname;
-                });
-            });
         }
-    }
-
-    const phoneInput = document.querySelector("#request-phone");
-    if (phoneInput && window.intlTelInput) {
-        window.intlTelInput(phoneInput, {
-            utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js",
-            initialCountry: "qa"
-        });
     }
 });
