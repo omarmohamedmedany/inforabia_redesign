@@ -158,6 +158,139 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // -----------------------------------------
+    // Mega Menu Tab Logic
+    // -----------------------------------------
+    const megaTabs = document.querySelectorAll('.mega-tab');
+    if (megaTabs.length > 0) {
+        megaTabs.forEach(tab => {
+            const activateTab = () => {
+                const targetId = tab.getAttribute('data-mega-target');
+                const menuContainer = tab.closest('.mega-menu-container');
+                if (!menuContainer) return;
+                menuContainer.querySelectorAll('.mega-tab').forEach(t => t.classList.remove('active'));
+                menuContainer.querySelectorAll('.mega-content-panel').forEach(p => p.classList.remove('active'));
+                tab.classList.add('active');
+                const targetPanel = menuContainer.querySelector(`#${targetId}`);
+                if (targetPanel) targetPanel.classList.add('active');
+            };
+            tab.addEventListener('mouseenter', () => { if (window.innerWidth > 992) activateTab(); });
+            tab.addEventListener('click', (e) => { e.preventDefault(); activateTab(); });
+        });
+    }
+
+    const megaDropdownItem = document.querySelector('.nav-item-dropdown');
+    if (megaDropdownItem) {
+        const toggleLink = megaDropdownItem.querySelector('.nav-link');
+        toggleLink.addEventListener('click', (e) => {
+            if (window.innerWidth <= 992) {
+                e.preventDefault();
+                megaDropdownItem.classList.toggle('open');
+                const icon = toggleLink.querySelector('.fa-chevron-down');
+                if (icon) {
+                    icon.style.transform = megaDropdownItem.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0)';
+                    icon.style.transition = 'transform 0.3s ease';
+                }
+            }
+        });
+    }
+
+    // -----------------------------------------
+    // Floating Action Button (FAB)
+    // -----------------------------------------
+    const isAuthPage = window.location.pathname.includes('auth.html') || window.location.pathname.includes('account.html');
+    if (!isAuthPage) {
+        const fab = document.createElement('a');
+        fab.href = 'bookings.html';
+        fab.className = 'floating-fab animate-on-scroll';
+        fab.innerHTML = '<i class="fa-solid fa-calendar-check" aria-hidden="true"></i> <span>Book a Consultation</span>';
+        document.body.appendChild(fab);
+        
+        setTimeout(() => fab.classList.add('is-visible'), 500);
+    }
+
+    // -----------------------------------------
+    // Scroll Progress Indicator
+    // -----------------------------------------
+    const scrollProgress = document.createElement('div');
+    scrollProgress.className = 'scroll-progress-bar';
+    document.body.appendChild(scrollProgress);
+
+    window.addEventListener('scroll', () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        scrollProgress.style.width = scrolled + "%";
+    });
+
+    // -----------------------------------------
+    // Carousel Navigation
+    // -----------------------------------------
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    const carouselContainer = document.querySelector('.carousel-container');
+
+    if (prevBtn && nextBtn && carouselContainer) {
+        prevBtn.addEventListener('click', () => {
+            carouselContainer.scrollBy({ left: -400, behavior: 'smooth' });
+        });
+        nextBtn.addEventListener('click', () => {
+            carouselContainer.scrollBy({ left: 400, behavior: 'smooth' });
+        });
+    }
+
+    // -----------------------------------------
+    // Cursor Spotlight Effect (Glassmorphism 2.0)
+    // -----------------------------------------
+    document.addEventListener('mousemove', (e) => {
+        // Update global body background spotlight
+        const x = (e.clientX / window.innerWidth) * 100;
+        const y = (e.clientY / window.innerHeight) * 100;
+        document.documentElement.style.setProperty('--cursor-x', `${x}%`);
+        document.documentElement.style.setProperty('--cursor-y', `${y}%`);
+
+        // Update individual glass card hover glows
+        document.querySelectorAll('.glass-card').forEach(card => {
+            const rect = card.getBoundingClientRect();
+            const cardX = e.clientX - rect.left;
+            const cardY = e.clientY - rect.top;
+            card.style.setProperty('--mouse-x', `${cardX}px`);
+            card.style.setProperty('--mouse-y', `${cardY}px`);
+        });
+    });
+
+    // -----------------------------------------
+    // Scrollytelling Timeline
+    // -----------------------------------------
+    const timelineContainer = document.querySelector('.timeline-container');
+    const timelineProgress = document.querySelector('.timeline-progress');
+    const timelineSteps = document.querySelectorAll('.timeline-step');
+
+    if (timelineContainer && timelineProgress && timelineSteps.length > 0) {
+        window.addEventListener('scroll', () => {
+            const rect = timelineContainer.getBoundingClientRect();
+            const viewportHeight = window.innerHeight;
+            
+            // Calculate how far we've scrolled into the container
+            // Start progress when container is in the middle of screen
+            const startOffset = viewportHeight * 0.5;
+            let scrollPercentage = (startOffset - rect.top) / rect.height * 100;
+            scrollPercentage = Math.max(0, Math.min(100, scrollPercentage));
+            
+            timelineProgress.style.height = `${scrollPercentage}%`;
+
+            // Activate nodes based on progress
+            timelineSteps.forEach((step, index) => {
+                const stepRect = step.getBoundingClientRect();
+                if (stepRect.top < viewportHeight * 0.6) {
+                    step.classList.add('is-active');
+                } else {
+                    step.classList.remove('is-active');
+                }
+            });
+        });
+    }
+
+    // -----------------------------------------
     // Mock Authentication System (localStorage)
     // -----------------------------------------
     const currentUser = JSON.parse(localStorage.getItem('inforabiaUser'));
@@ -226,22 +359,43 @@ document.addEventListener('DOMContentLoaded', () => {
     // 3. Handle auth.html view (Forms vs Dashboard)
     const authForms = document.getElementById('auth-forms');
     const dashboardView = document.getElementById('dashboard-view');
+    const profileSetupView = document.getElementById('profile-setup-view');
     
     if (authForms && dashboardView) {
         if (currentUser) {
             authForms.style.display = 'none';
-            dashboardView.style.display = 'block';
             
-            const nameDisplay = document.getElementById('user-name-display');
-            if (nameDisplay) nameDisplay.textContent = currentUser.name.split(' ')[0];
-            
-            const greetingText = document.getElementById('greeting-text');
-            if (greetingText) {
-                greetingText.textContent = currentUser.isFirstTime ? 'Hi' : 'Welcome back';
+            if (!currentUser.avatar && !currentUser.hasSkippedAvatar && profileSetupView) {
+                // Show profile setup
+                profileSetupView.style.display = 'block';
+                dashboardView.style.display = 'none';
+            } else {
+                // Show dashboard
+                if (profileSetupView) profileSetupView.style.display = 'none';
+                dashboardView.style.display = 'block';
+                
+                const nameDisplay = document.getElementById('user-name-display');
+                if (nameDisplay) nameDisplay.textContent = currentUser.name.split(' ')[0];
+                
+                const greetingText = document.getElementById('greeting-text');
+                if (greetingText) {
+                    greetingText.textContent = currentUser.isFirstTime ? 'Hi' : 'Welcome back';
+                }
+                
+                if (currentUser.avatar) {
+                    const avatarImg = document.getElementById('dashboard-avatar');
+                    const avatarPlaceholder = document.getElementById('dashboard-avatar-placeholder');
+                    if (avatarImg && avatarPlaceholder) {
+                        avatarImg.src = currentUser.avatar;
+                        avatarImg.style.display = 'block';
+                        avatarPlaceholder.style.display = 'none';
+                    }
+                }
             }
         } else {
             authForms.style.display = 'grid';
             dashboardView.style.display = 'none';
+            if (profileSetupView) profileSetupView.style.display = 'none';
             
             // Sign In Logic
             const signInForm = document.getElementById('sign-in-form');
@@ -304,6 +458,67 @@ document.addEventListener('DOMContentLoaded', () => {
                     localStorage.setItem('inforabiaUser', JSON.stringify(newUser));
                     
                     window.location.href = window.location.pathname;
+                });
+            }
+            
+            // Profile Picture Logic
+            const profilePicUpload = document.getElementById('profile-pic-upload');
+            const profilePicPreview = document.getElementById('profile-pic-preview');
+            const saveProfilePicBtn = document.getElementById('save-profile-pic');
+            const skipProfilePicBtn = document.getElementById('skip-profile-pic');
+            let tempAvatarDataUrl = null;
+
+            if (profilePicUpload && profilePicPreview) {
+                profilePicUpload.addEventListener('change', function() {
+                    const file = this.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            tempAvatarDataUrl = e.target.result;
+                            profilePicPreview.innerHTML = `<img src="${tempAvatarDataUrl}" style="width: 100%; height: 100%; object-fit: cover;">`;
+                            saveProfilePicBtn.disabled = false;
+                        }
+                        reader.readAsDataURL(file);
+                    }
+                });
+
+                saveProfilePicBtn.addEventListener('click', () => {
+                    if (tempAvatarDataUrl && currentUser) {
+                        currentUser.avatar = tempAvatarDataUrl;
+                        localStorage.setItem('inforabiaUser', JSON.stringify(currentUser));
+                        
+                        const db = JSON.parse(localStorage.getItem('inforabiaMockDB'));
+                        if (db) {
+                            db.avatar = tempAvatarDataUrl;
+                            localStorage.setItem('inforabiaMockDB', JSON.stringify(db));
+                        }
+                        window.location.reload();
+                    }
+                });
+
+                skipProfilePicBtn.addEventListener('click', () => {
+                    if (currentUser) {
+                        currentUser.hasSkippedAvatar = true;
+                        localStorage.setItem('inforabiaUser', JSON.stringify(currentUser));
+                        
+                        const db = JSON.parse(localStorage.getItem('inforabiaMockDB'));
+                        if (db) {
+                            db.hasSkippedAvatar = true;
+                            localStorage.setItem('inforabiaMockDB', JSON.stringify(db));
+                        }
+                        window.location.reload();
+                    }
+                });
+            }
+            
+            // Handle edit profile button
+            const editProfileBtn = document.getElementById('edit-profile-btn');
+            if (editProfileBtn && currentUser) {
+                editProfileBtn.addEventListener('click', () => {
+                    currentUser.hasSkippedAvatar = false;
+                    currentUser.avatar = null;
+                    localStorage.setItem('inforabiaUser', JSON.stringify(currentUser));
+                    window.location.reload();
                 });
             }
         }

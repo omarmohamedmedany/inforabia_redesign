@@ -34,30 +34,131 @@
             <ul class="nav-links" id="primary-menu" data-nav-links data-open="false">
                 <li><a class="nav-link" href="index.html" aria-current="page">Home</a></li>
                 <li><a class="nav-link" href="about.html">About us</a></li>
-                <li><a class="nav-link" href="services.html">Services</a></li>
+                <li class="nav-item-dropdown">
+                    <a class="nav-link" href="services.html">Services <i class="fa-solid fa-chevron-down" style="font-size: 0.7em; margin-left: 0.3rem;"></i></a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-container">
+                            <div class="mega-sidebar">
+                                <div class="mega-sidebar-title">Explore Services</div>
+                                <button class="mega-tab active" data-mega-target="mega-oracle">Oracle Solutions <i class="fa-solid fa-arrow-right"></i></button>
+                                <button class="mega-tab" data-mega-target="mega-digital">Cloud & Digital <i class="fa-solid fa-arrow-right"></i></button>
+                                <button class="mega-tab" data-mega-target="mega-managed">Managed IT <i class="fa-solid fa-arrow-right"></i></button>
+                            </div>
+                            <div class="mega-content">
+                                <div id="mega-oracle" class="mega-content-panel active">
+                                    <div class="mega-content-header">
+                                        <h3>Oracle Solutions</h3>
+                                        <p>Enterprise applications tailored for your regional requirements.</p>
+                                    </div>
+                                    <div class="mega-grid">
+                                        <a href="services.html" class="mega-link">
+                                            <h4><i class="fa-solid fa-chart-pie" style="color:#c00000"></i> ERP Cloud</h4>
+                                            <p>Financials, procurement, and project management.</p>
+                                        </a>
+                                        <a href="services.html" class="mega-link">
+                                            <h4><i class="fa-solid fa-truck-fast" style="color:#c00000"></i> SCM Cloud</h4>
+                                            <p>Inventory, manufacturing, and supply chain logistics.</p>
+                                        </a>
+                                        <a href="services.html" class="mega-link">
+                                            <h4><i class="fa-solid fa-users" style="color:#c00000"></i> HCM Cloud</h4>
+                                            <p>Core HR, talent management, and workforce.</p>
+                                        </a>
+                                        <a href="services.html" class="mega-link">
+                                            <h4><i class="fa-solid fa-comments" style="color:#c00000"></i> CX Cloud</h4>
+                                            <p>Customer experience, sales, and service tools.</p>
+                                        </a>
+                                    </div>
+                                    <a href="services.html" class="mega-link-action">View all Oracle services <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                                <div id="mega-digital" class="mega-content-panel">
+                                    <div class="mega-content-header">
+                                        <h3>Cloud & Digital</h3>
+                                        <p>Modernize your infrastructure and automate processes.</p>
+                                    </div>
+                                    <div class="mega-grid">
+                                        <a href="services.html" class="mega-link">
+                                            <h4><i class="fa-solid fa-cloud-arrow-up" style="color:#c00000"></i> Cloud Migration</h4>
+                                            <p>Seamless transition to OCI, AWS, and Azure.</p>
+                                        </a>
+                                        <a href="services.html" class="mega-link">
+                                            <h4><i class="fa-solid fa-microchip" style="color:#c00000"></i> AI & Automation</h4>
+                                            <p>RPA, IoT, and machine learning integration.</p>
+                                        </a>
+                                        <a href="services.html" class="mega-link">
+                                            <h4><i class="fa-solid fa-code" style="color:#c00000"></i> Custom Development</h4>
+                                            <p>Low-code solutions and bespoke enterprise apps.</p>
+                                        </a>
+                                    </div>
+                                    <a href="services.html" class="mega-link-action">Explore digital solutions <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                                <div id="mega-managed" class="mega-content-panel">
+                                    <div class="mega-content-header">
+                                        <h3>Managed IT Services</h3>
+                                        <p>Proactive support to keep your business running smoothly.</p>
+                                    </div>
+                                    <div class="mega-grid">
+                                        <a href="services.html" class="mega-link">
+                                            <h4><i class="fa-solid fa-headset" style="color:#c00000"></i> 24/7 Support</h4>
+                                            <p>SLA-led incident management and troubleshooting.</p>
+                                        </a>
+                                        <a href="services.html" class="mega-link">
+                                            <h4><i class="fa-solid fa-shield-halved" style="color:#c00000"></i> Infrastructure</h4>
+                                            <p>Proactive health checks and security patching.</p>
+                                        </a>
+                                    </div>
+                                    <a href="services.html" class="mega-link-action">Learn about managed services <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
                 <li><a class="nav-link" href="bookings.html">Bookings</a></li>
-                <li class="mobile-client-access"><a class="btn btn-primary" href="auth.html"><i class="fa-solid fa-user-circle" aria-hidden="true"></i> Client access</a></li>
+                <li class="mobile-client-access"><a class="btn btn-primary" href="auth.html"><i class="fa-solid fa-user-circle" aria-hidden="true"></i> Sign in</a></li>
             </ul>
             <div class="nav-actions">
                 <a class="whatsapp-link" href="https://wa.me/966545220713?text=Hello%20Inforabia%2C%20I%20would%20like%20to%20inquire%20about%20your%20services." target="_blank" rel="noopener noreferrer" aria-label="Contact Inforabia on WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
-                <a class="btn btn-primary desktop-client-access" href="auth.html"><i class="fa-solid fa-user-circle" aria-hidden="true"></i> Client access</a>
+                <a class="btn btn-primary desktop-client-access" href="auth.html"><i class="fa-solid fa-user-circle" aria-hidden="true"></i> Sign in</a>
                 <button class="nav-toggle" type="button" aria-label="Open menu" aria-controls="primary-menu" aria-expanded="false" data-nav-toggle><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
             </div>
         </div>
     </nav>
 
     <main id="main-content">
-        <header class="home-hero">
+        <section class="home-hero">
             <div class="container hero-content animate-on-scroll">
-                <p class="eyebrow">Enterprise technology for MENA</p>
-                <h1>Accelerating your <span class="text-gradient">digital success</span></h1>
-                <p>Inforabia helps enterprises modernize operations through Oracle Cloud, secure migrations, expert implementations, and managed IT services across the MENA region.</p>
+                <p class="eyebrow">Premier Oracle Partner</p>
+                <h1>Accelerating Your Digital Success</h1>
+                <p>We deliver comprehensive digital transformation, cloud migration, ERP implementation, and managed IT services to future-proof enterprises across the MENA region.</p>
                 <div class="hero-actions">
-                    <a class="btn btn-primary" href="services.html">Explore our services <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-                    <a class="btn btn-secondary" href="bookings.html">Schedule a consultation</a>
+                    <a class="btn btn-primary" href="bookings.html">Start your transformation <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    <a class="btn btn-secondary" href="services.html">Explore our solutions</a>
                 </div>
             </div>
-        </header>
+        </section>
+
+        <section class="partner-marquee-section">
+            <div class="marquee">
+                <div class="marquee-track">
+                    <div class="marquee-content">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg" alt="Oracle" height="35">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS" height="35">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a8/Microsoft_Azure_Logo.svg" alt="Microsoft Azure" height="35">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM" height="35">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg" alt="Salesforce" height="35">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg" alt="SAP" height="35">
+                    </div>
+                    <!-- Duplicate for seamless scroll -->
+                    <div class="marquee-content" aria-hidden="true">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg" alt="Oracle" height="35">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS" height="35">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a8/Microsoft_Azure_Logo.svg" alt="Microsoft Azure" height="35">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM" height="35">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg" alt="Salesforce" height="35">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg" alt="SAP" height="35">
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <section class="section">
             <div class="container">
@@ -106,7 +207,7 @@
 
         <section class="section">
             <div class="container grid grid--2 feature-layout">
-                <img class="feature-image animate-on-scroll" src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80" alt="Team meeting around a table" loading="lazy">
+                <img class="feature-image animate-on-scroll" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80" alt="Advanced data center and cloud infrastructure" loading="lazy">
                 <div class="animate-on-scroll">
                     <p class="eyebrow">Why Inforabia</p>
                     <h2>A technology partner invested in your outcomes</h2>
@@ -133,6 +234,53 @@
             </div>
         </section>
 
+        <section class="section scrolly-timeline-section">
+            <div class="container">
+                <div class="section-heading animate-on-scroll">
+                    <p class="eyebrow">Our Process</p>
+                    <h2>End-to-End Delivery</h2>
+                    <p>A proven methodology that ensures your digital transformation is completed on time, within budget, and with zero operational disruption.</p>
+                </div>
+                <div class="timeline-container">
+                    <div class="timeline-line">
+                        <div class="timeline-progress"></div>
+                    </div>
+                    
+                    <div class="timeline-step">
+                        <div class="timeline-node"><i class="fa-solid fa-magnifying-glass"></i></div>
+                        <div class="timeline-content glass-card animate-on-scroll">
+                            <h3>1. Discovery & Architecture</h3>
+                            <p>We analyze your existing workflows, identify operational bottlenecks, and architect a secure, scalable Oracle cloud environment tailored to your specific industry requirements.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-step">
+                        <div class="timeline-node"><i class="fa-solid fa-code"></i></div>
+                        <div class="timeline-content glass-card animate-on-scroll">
+                            <h3>2. Implementation & Integration</h3>
+                            <p>Our certified engineers deploy the core ERP/SCM solutions, migrate critical data without downtime, and seamlessly integrate new systems with your legacy third-party applications.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-step">
+                        <div class="timeline-node"><i class="fa-solid fa-users-gear"></i></div>
+                        <div class="timeline-content glass-card animate-on-scroll">
+                            <h3>3. Adoption & Training</h3>
+                            <p>Technology is only as good as the people using it. We conduct comprehensive change management and role-based training to ensure your workforce transitions smoothly and confidently.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-step">
+                        <div class="timeline-node"><i class="fa-solid fa-shield-halved"></i></div>
+                        <div class="timeline-content glass-card animate-on-scroll">
+                            <h3>4. SLA-Led Managed Support</h3>
+                            <p>Post go-live, our 24/7 support center takes over. We provide proactive system monitoring, continuous optimization, and rapid incident response backed by strict Service Level Agreements.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="section">
             <div class="container">
                 <div class="section-heading animate-on-scroll"><p class="eyebrow">Industry expertise</p><h2>Enterprise experience across MENA</h2><p>Solutions tailored to sector-specific operations, regulation, risk, and growth goals.</p></div>
@@ -151,17 +299,43 @@
 
         <section class="section section--muted">
             <div class="container">
-                <div class="section-heading animate-on-scroll"><p class="eyebrow">Client success</p><h2>Partnerships that create momentum</h2></div>
-                <div class="grid grid--3">
-                    <article class="glass-card testimonial animate-on-scroll"><span class="card-icon card-icon--orange"><i class="fa-solid fa-quote-left" aria-hidden="true"></i></span><blockquote>“Inforabia's Oracle Cloud ERP expertise was instrumental in our digital transformation and in improving our financial processes.”</blockquote><cite>Ahmed Al-Farsi<span>CFO, Regional Retail Group</span></cite></article>
-                    <article class="glass-card testimonial animate-on-scroll"><span class="card-icon card-icon--orange"><i class="fa-solid fa-quote-left" aria-hidden="true"></i></span><blockquote>“Their proactive managed-services approach has reduced downtime and given our team real peace of mind.”</blockquote><cite>Sarah Hassan<span>IT Director, Healthcare Innovations</span></cite></article>
-                    <article class="glass-card testimonial animate-on-scroll"><span class="card-icon card-icon--orange"><i class="fa-solid fa-quote-left" aria-hidden="true"></i></span><blockquote>“Inforabia executed our cloud migration strategy with zero disruption to daily operations.”</blockquote><cite>Tariq Mahmoud<span>CTO, Future Manufacturing Co.</span></cite></article>
+                <div class="section-heading animate-on-scroll"><p class="eyebrow">Client success</p><h2>Partnerships that create momentum</h2><p>Real outcomes from our enterprise transformation programs.</p></div>
+                
+                <div class="carousel-wrapper animate-on-scroll">
+                    
+                    <div class="carousel-container">
+                        <article class="glass-card carousel-item">
+                            <span class="card-icon card-icon--orange"><i class="fa-solid fa-quote-left" aria-hidden="true"></i></span>
+                            <blockquote>“Inforabia's Oracle Cloud ERP expertise was instrumental in our digital transformation and in improving our financial processes.”</blockquote>
+                            <cite>Ahmed Al-Farsi<span>CFO, Regional Retail Group</span></cite>
+                            <div class="metrics">
+                                <div class="metric"><strong>40%</strong><span>Faster close</span></div>
+                                <div class="metric"><strong>$2M</strong><span>Cost saved</span></div>
+                            </div>
+                        </article>
+                        <article class="glass-card carousel-item">
+                            <span class="card-icon card-icon--orange"><i class="fa-solid fa-quote-left" aria-hidden="true"></i></span>
+                            <blockquote>“Their proactive managed-services approach has reduced downtime and given our team real peace of mind.”</blockquote>
+                            <cite>Sarah Hassan<span>IT Director, Healthcare Innovations</span></cite>
+                            <div class="metrics">
+                                <div class="metric"><strong>99.9%</strong><span>Uptime</span></div>
+                                <div class="metric"><strong>24/7</strong><span>Support</span></div>
+                            </div>
+                        </article>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="section cta">
-            <div class="container animate-on-scroll"><p class="eyebrow">Start a conversation</p><h2>Ready to transform your business?</h2><p>Tell us about your goals and we’ll help map the right next step for your technology landscape.</p><a class="btn btn-primary" href="bookings.html">Book a consultation <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+
+
+        <section class="section cta-banner animate-on-scroll">
+            <div class="container animate-on-scroll">
+                <p class="eyebrow">Start a conversation</p>
+                <h2>Ready to transform your business?</h2>
+                <p>Tell us about your goals and we’ll help map the right next step for your technology landscape.</p>
+                <a class="btn btn-primary" href="bookings.html">Book a consultation <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
         </section>
     </main>
 
