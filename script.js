@@ -356,6 +356,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // 2.5 Disable mega-link click navigation
+    const megaLinks = document.querySelectorAll('.mega-link');
+    if (megaLinks.length > 0) {
+        megaLinks.forEach(link => {
+            link.style.cursor = 'default';
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+            });
+        });
+    }
+
     // 3. Handle auth.html view (Forms vs Dashboard)
     const authForms = document.getElementById('auth-forms');
     const dashboardView = document.getElementById('dashboard-view');
