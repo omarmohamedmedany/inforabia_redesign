@@ -1,0 +1,99 @@
+<html xmlns:x="urn:schemas-microsoft-com:office:excel">
+<head>
+    <meta http-equiv="content-type" content="application/vnd.ms-excel; charset=UTF-8">
+    <xml>
+        <x:ExcelWorkbook>
+            <x:ExcelWorksheets>
+                <x:ExcelWorksheet>
+                    <x:Name>Website Data</x:Name>
+                    <x:WorksheetOptions>
+                        <x:DisplayGridlines/>
+                    </x:WorksheetOptions>
+                </x:ExcelWorksheet>
+            </x:ExcelWorksheets>
+        </x:ExcelWorkbook>
+    </xml>
+</head>
+<body>
+    <table>
+        <tr>
+            <th style="background-color: #058199; color: white; font-weight: bold;">Page</th>
+            <th style="background-color: #058199; color: white; font-weight: bold;">Section</th>
+            <th style="background-color: #058199; color: white; font-weight: bold;">Heading</th>
+            <th style="background-color: #058199; color: white; font-weight: bold;">Description</th>
+        </tr>
+        <tr><td>Home</td><td>Hero</td><td>Accelerating Your Digital Success</td><td>We deliver comprehensive digital transformation, cloud migration, ERP implementation, and managed IT services to future-proof enterprises across the MENA region.</td></tr>
+        <tr><td>Home</td><td>Stats</td><td>100+</td><td>Enterprise Clients Served</td></tr>
+        <tr><td>Home</td><td>Stats</td><td>500+</td><td>Oracle Implementations</td></tr>
+        <tr><td>Home</td><td>Stats</td><td>15+</td><td>Years of Excellence</td></tr>
+        <tr><td>Home</td><td>Stats</td><td>98%</td><td>Client Satisfaction Rate</td></tr>
+        <tr><td>Home</td><td>Stats</td><td>200+</td><td>Certified Professionals</td></tr>
+        <tr><td>Home</td><td>Stats</td><td>10+</td><td>Countries Served</td></tr>
+        <tr><td>Home</td><td>Expertise</td><td>Oracle Implementations</td><td>Comprehensive expertise across Oracle ERP Cloud, SCM, HCM, EPM, and CX. We handle end-to-end implementation, enhancements, migration, and ongoing support services to maximize your Oracle investment.</td></tr>
+        <tr><td>Home</td><td>Expertise</td><td>Cloud Architecture & Migration</td><td>Seamless migrations to Oracle Cloud Infrastructure (OCI), AWS, and Azure. We provide thorough assessment, strategic planning, execution, and post-migration optimization.</td></tr>
+        <tr><td>Home</td><td>Expertise</td><td>Managed IT Services</td><td>Reliable 24/7 support and proactive monitoring. We manage SLAs, handle incident response, and oversee your entire IT infrastructure.</td></tr>
+        <tr><td>Home</td><td>Solutions</td><td>Enterprise Resource Planning (ERP)</td><td>Oracle Fusion Cloud ERP empowers financial management, advanced procurement, and full lifecycle project management.</td></tr>
+        <tr><td>Home</td><td>Solutions</td><td>Supply Chain Management (SCM)</td><td>Oracle SCM Cloud optimizes your inventory, drives manufacturing efficiency, and perfects order management and logistics.</td></tr>
+        <tr><td>Home</td><td>Solutions</td><td>Human Capital Management (HCM)</td><td>Oracle HCM Cloud transforms talent management, streamlines workforce tracking, and automates payroll and benefits.</td></tr>
+        <tr><td>Home</td><td>Solutions</td><td>Enterprise Performance Management (EPM)</td><td>Comprehensive tools for financial planning, budgeting, forecasting, and narrative reporting.</td></tr>
+        <tr><td>Home</td><td>Solutions</td><td>Customer Experience (CX)</td><td>Oracle CX Cloud connects sales, marketing, service, and commerce for a unified customer journey.</td></tr>
+        <tr><td>Home</td><td>Solutions</td><td>Digital Transformation</td><td>Leverage AI, RPA, IoT, Machine Learning, and low-code development (VBCS) to innovate.</td></tr>
+        <tr><td>Home</td><td>Why Choose Us</td><td>Certified Oracle Professionals</td><td>Industry-recognized experts with top-tier certifications.</td></tr>
+        <tr><td>Home</td><td>Why Choose Us</td><td>End-to-End Project Delivery</td><td>From initial consultancy and strategy to full deployment.</td></tr>
+        <tr><td>Home</td><td>Why Choose Us</td><td>Tailored Bespoke Solutions</td><td>Custom strategies built specifically for your unique business needs.</td></tr>
+        <tr><td>Home</td><td>Why Choose Us</td><td>24/7 Dedicated Support</td><td>Round-the-clock assistance with strict SLA guarantees.</td></tr>
+        <tr><td>Home</td><td>Why Choose Us</td><td>Proven Track Record</td><td>Successful deliveries across Oil & Gas, Banking, Retail, Government, and Healthcare.</td></tr>
+        <tr><td>Home</td><td>Why Choose Us</td><td>Winning Together</td><td>A collaborative partnership approach focused on mutual growth.</td></tr>
+        <tr><td>Home</td><td>Industries</td><td>Oil & Gas</td><td>Optimizing exploration, production, and distribution supply chains.</td></tr>
+        <tr><td>Home</td><td>Industries</td><td>Banking & Finance</td><td>Secure, compliant financial systems and data management.</td></tr>
+        <tr><td>Home</td><td>Industries</td><td>Retail & E-Commerce</td><td>Omnichannel experiences and responsive inventory management.</td></tr>
+        <tr><td>Home</td><td>Industries</td><td>Government & Public Sector</td><td>Digital citizen services and modernized infrastructure.</td></tr>
+        <tr><td>Home</td><td>Industries</td><td>Healthcare</td><td>Patient data management and clinical operational efficiency.</td></tr>
+        <tr><td>Home</td><td>Industries</td><td>Manufacturing</td><td>Smart factory integrations and production line optimization.</td></tr>
+        <tr><td>Home</td><td>Industries</td><td>Telecommunications</td><td>Billing optimization and network infrastructure management.</td></tr>
+        <tr><td>Home</td><td>Industries</td><td>Education</td><td>Student information systems and digital learning platforms.</td></tr>
+        <tr><td>Home</td><td>Testimonials</td><td>Ahmed Al-Farsi (CTO)</td><td>Inforabia transformed our legacy systems into a streamlined, cloud-based powerhouse. Their Oracle expertise is unmatched in the MENA region.</td></tr>
+        <tr><td>Home</td><td>Testimonials</td><td>Sarah Mansour (Director of Operations)</td><td>The team's dedication to our success was evident from day one. They didn't just implement software; they revolutionized our operational workflows.</td></tr>
+        <tr><td>About</td><td>Journey</td><td>Founded to bridge complex business challenges with scalable technology</td><td>Inforabia Solutions and Consultancy has grown into a premier Oracle Partner specializing in ERP, SCM, HCM, EPM, and CX.</td></tr>
+        <tr><td>About</td><td>Journey</td><td>Deep expertise in cloud computing and digital transformation</td><td>We serve a diverse portfolio of clients across the Middle East and North Africa, upgrading legacy supply chain systems and integrating AI and RPA.</td></tr>
+        <tr><td>About</td><td>Journey</td><td>Commitment to our Winning Together philosophy</td><td>We have grown from a small consultancy to a regional leader by ensuring our clients' success is our top priority.</td></tr>
+        <tr><td>About</td><td>Mission</td><td>Mission</td><td>Empowering organizations through state-of-the-art digital transformations, optimizing processes, integrating Oracle applications, and deploying agile cloud architectures to enable faster, smarter operations.</td></tr>
+        <tr><td>About</td><td>Vision</td><td>Vision</td><td>Being the foremost global partner for enterprise technology modernization, leveraging AI, IoT, and Cloud computing to make data-driven decisions inherent in every business.</td></tr>
+        <tr><td>About</td><td>Values</td><td>Innovation</td><td>Constantly pushing the boundaries of what is possible.</td></tr>
+        <tr><td>About</td><td>Values</td><td>Integrity</td><td>Building transparent, honest partnerships.</td></tr>
+        <tr><td>About</td><td>Values</td><td>Excellence</td><td>Delivering the highest quality solutions every time.</td></tr>
+        <tr><td>About</td><td>Values</td><td>Collaboration</td><td>Working as one unified team alongside our clients.</td></tr>
+        <tr><td>About</td><td>Values</td><td>Agility</td><td>Adapting quickly to changing business and market needs.</td></tr>
+        <tr><td>About</td><td>Values</td><td>Impact</td><td>Creating measurable, sustainable business outcomes.</td></tr>
+        <tr><td>About</td><td>Footprint</td><td>Riyadh, KSA</td><td>HQ driving innovation across the Kingdom, serving Saudi Vision 2030 digital transformation initiatives. 7306 King Fahad St, Al Wisham Dist.</td></tr>
+        <tr><td>About</td><td>Footprint</td><td>Cairo, Egypt</td><td>Delivery and technical excellence center boasting a deep talent pool and exceptional engineering expertise. 16 Joseph Tito St, El Nozha.</td></tr>
+        <tr><td>Services</td><td>Oracle Solutions</td><td>ERP Cloud</td><td>Financials, procurement, and project management.</td></tr>
+        <tr><td>Services</td><td>Oracle Solutions</td><td>SCM Cloud</td><td>Inventory, manufacturing, and supply chain logistics.</td></tr>
+        <tr><td>Services</td><td>Oracle Solutions</td><td>HCM Cloud</td><td>Core HR, talent management, and workforce.</td></tr>
+        <tr><td>Services</td><td>Oracle Solutions</td><td>EPM Cloud</td><td>Planning, budgeting, and financial consolidation.</td></tr>
+        <tr><td>Services</td><td>Oracle Solutions</td><td>CX Cloud</td><td>Customer experience, sales, and service tools.</td></tr>
+        <tr><td>Services</td><td>Cloud & Digital</td><td>Cloud Migration</td><td>Seamless transition to OCI, AWS, and Azure.</td></tr>
+        <tr><td>Services</td><td>Cloud & Digital</td><td>Application Modernization</td><td>Refactoring legacy apps for cloud-native agility.</td></tr>
+        <tr><td>Services</td><td>Cloud & Digital</td><td>AI & RPA</td><td>Automating routine tasks and deriving insights.</td></tr>
+        <tr><td>Services</td><td>Cloud & Digital</td><td>Data Analytics & BI</td><td>Transforming raw data into actionable intelligence.</td></tr>
+        <tr><td>Services</td><td>Managed IT</td><td>Application Management</td><td>Ongoing support, enhancements, and bug fixes.</td></tr>
+        <tr><td>Services</td><td>Managed IT</td><td>Database Administration</td><td>Performance tuning, backups, and secure hosting.</td></tr>
+        <tr><td>Services</td><td>Managed IT</td><td>Infrastructure Management</td><td>Network monitoring, security, and cloud health.</td></tr>
+        <tr><td>Services</td><td>Managed IT</td><td>24/7 Service Desk</td><td>SLA-driven multi-tier support for enterprise users.</td></tr>
+        <tr><td>Services</td><td>Methodology</td><td>Discovery & Planning</td><td>Aligning technology with strategic business goals.</td></tr>
+        <tr><td>Services</td><td>Methodology</td><td>Design & Architecture</td><td>Crafting scalable and secure solution blueprints.</td></tr>
+        <tr><td>Services</td><td>Methodology</td><td>Build & Configure</td><td>Developing and customizing the core platform.</td></tr>
+        <tr><td>Services</td><td>Methodology</td><td>Testing & Validation</td><td>Rigorous QA to ensure flawless performance.</td></tr>
+        <tr><td>Services</td><td>Methodology</td><td>Deployment & Training</td><td>Smooth go-live and comprehensive user onboarding.</td></tr>
+        <tr><td>Services</td><td>Methodology</td><td>Support & Optimization</td><td>Continuous improvement and proactive maintenance.</td></tr>
+        <tr><td>Contact</td><td>Contact Info</td><td>Email</td><td>Info@inforabia.com</td></tr>
+        <tr><td>Contact</td><td>Contact Info</td><td>Phone</td><td>+966 54 522 0713</td></tr>
+        <tr><td>Contact</td><td>Contact Info</td><td>Address</td><td>7306 King Fahad St, Al Wisham Dist, Riyadh</td></tr>
+        <tr><td>Contact</td><td>Social Links</td><td>Facebook</td><td>https://www.facebook.com/InforabiaSolutions/</td></tr>
+        <tr><td>Contact</td><td>Social Links</td><td>X/Twitter</td><td>https://x.com/InforabiaS47042</td></tr>
+        <tr><td>Contact</td><td>Social Links</td><td>Instagram</td><td>https://www.instagram.com/inforabia_solutions/</td></tr>
+        <tr><td>Contact</td><td>Social Links</td><td>LinkedIn</td><td>https://linkedin.com/company/inforabia</td></tr>
+        <tr><td>Contact</td><td>Social Links</td><td>YouTube</td><td>https://www.youtube.com/@inforabiasolutions</td></tr>
+    </table>
+</body>
+</html>

@@ -119,10 +119,10 @@
                     <div style="display: flex; align-items: center; gap: 1.5rem; border-bottom: 1px solid var(--glass-border); padding-bottom: 2rem; margin-bottom: 2rem;">
                         <div style="position: relative;">
                             <input type="file" id="avatar-upload" accept="image/*" style="display: none;">
-                            <label for="avatar-upload" id="avatar-container" style="cursor: pointer; width: 5rem; height: 5rem; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; font-size: 2rem; color: var(--clr-teal); overflow: hidden; position: relative; border: 2px solid transparent; transition: border-color 0.2s;">
+                            <label for="avatar-upload" id="avatar-container" class="account-avatar-container">
                                 <img id="profile-avatar-preview" src="" style="width: 100%; height: 100%; object-fit: cover; display: none;">
                                 <i class="fa-solid fa-user" id="profile-avatar-icon"></i>
-                                <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.2s;" id="avatar-hover-overlay">
+                                <div id="avatar-hover-overlay" class="account-avatar-overlay">
                                     <i class="fa-solid fa-camera" style="font-size: 1.2rem; color: white;"></i>
                                 </div>
                             </label>
@@ -130,7 +130,7 @@
                         <div>
                             <h2 style="margin: 0; font-size: 1.5rem;" id="display-name">Loading...</h2>
                             <p class="text-muted" style="margin-top: 0.25rem;">Manage your profile and preferences.</p>
-                            <p id="avatar-error" style="color: #c00000; font-size: 0.9rem; margin-top: 0.5rem; display: none;"></p>
+                            <p id="avatar-error" class="error-msg"></p>
                         </div>
                     </div>
                     
@@ -198,6 +198,11 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/intlTelInput.min.js"></script>
+    <div class="floating-widget animate-on-scroll delay-300">
+        <a href="bookings.html" class="fab fab--booking" aria-label="Book a consultation" title="Book Consultation">
+            <i class="fa-solid fa-calendar-check"></i>
+        </a>
+    </div>
     <script src="script.js"></script>
     <script>
         // Account Page Logic

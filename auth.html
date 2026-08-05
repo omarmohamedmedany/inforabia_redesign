@@ -116,20 +116,20 @@
             </div>
             
             <!-- Profile Setup View -->
-            <div id="profile-setup-view" style="display: none; grid-column: 1 / -1; width: 100%; max-width: 600px; margin: 0 auto;">
-                <div class="glass-card" style="padding: clamp(1.5rem, 4vw, 3rem); text-align: center;">
+            <div id="profile-setup-view" class="profile-setup-container">
+                <div class="glass-card profile-setup-card">
                     <h2>Add your picture</h2>
                     <p class="text-muted" style="margin-bottom: 2rem;">Personalize your profile so your team knows who they are working with.</p>
                     
                     <div style="margin-bottom: 2rem;">
                         <label for="profile-pic-upload" style="cursor: pointer; display: inline-block;">
-                            <div id="profile-pic-preview" style="width: 120px; height: 120px; border-radius: 50%; background: rgba(5, 129, 153, 0.15); border: 2px dashed rgba(5, 129, 153, 0.5); display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; overflow: hidden; position: relative;">
+                            <div id="profile-pic-preview" class="profile-pic-preview-container">
                                 <i class="fa-solid fa-camera" style="font-size: 2rem; color: var(--clr-teal); opacity: 0.5;"></i>
                             </div>
                             <span class="btn btn-secondary btn-sm">Choose Image</span>
                         </label>
                         <input type="file" id="profile-pic-upload" accept="image/*" style="display: none;">
-                        <p id="profile-pic-error" style="color: #c00000; font-size: 0.9rem; margin-top: 1rem; display: none;"></p>
+                        <p id="profile-pic-error" class="error-msg"></p>
                     </div>
                     
                     <div style="display: flex; gap: 1rem; justify-content: center;">
@@ -140,16 +140,18 @@
             </div>
 
             <!-- Dashboard View -->
-            <div id="dashboard-view" style="display: none; grid-column: 1 / -1; width: 100%;">
-                <div class="glass-card" style="padding: clamp(1.5rem, 4vw, 3rem);">
-                    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 2.5rem; border-bottom: 1px solid var(--glass-border); padding-bottom: 1.5rem;">
-                        <div style="display: flex; align-items: center; gap: 1.5rem;">
+            <div id="dashboard-view" class="dashboard-view-container">
+                <div class="glass-card dashboard-card">
+                    <div class="dashboard-header">
+                        <div class="dashboard-user-info">
                             <div style="position: relative;">
-                                <img id="dashboard-avatar" src="" alt="Profile" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; display: none; border: 2px solid var(--clr-teal);">
-                                <div id="dashboard-avatar-placeholder" style="width: 80px; height: 80px; border-radius: 50%; background: rgba(5, 129, 153, 0.15); display: flex; align-items: center; justify-content: center; font-size: 2rem; color: var(--clr-teal);">
+                                <img id="dashboard-avatar" src="" alt="Profile" class="dashboard-avatar" style="display: none;">
+                                <div id="dashboard-avatar-placeholder" class="dashboard-avatar-placeholder">
                                     <i class="fa-solid fa-user"></i>
                                 </div>
-                                <button id="edit-profile-btn" style="position: absolute; bottom: 0; right: 0; background: var(--clr-teal); color: #fff; border: none; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 0.8rem; box-shadow: 0 2px 5px rgba(0,0,0,0.3);"><i class="fa-solid fa-pen"></i></button>
+                                <button id="edit-profile-btn" class="btn btn-secondary btn-sm" style="position: absolute; bottom: -10px; right: -10px; padding: 0.4rem; border-radius: 50%; width: 2.2rem; height: 2.2rem;" aria-label="Edit profile picture">
+                                    <i class="fa-solid fa-pencil"></i>
+                                </button>
                             </div>
                             <div>
                                 <h2 style="font-size: clamp(1.8rem, 3vw, 2.2rem); margin-bottom: 0.2rem;"><span id="greeting-text">Welcome back</span>, <span id="user-name-display" class="text-gradient">User</span>!</h2>
@@ -159,12 +161,54 @@
                         <a href="index.html" class="btn btn-secondary">Go to home</a>
                     </div>
                     
+                    <div class="dashboard-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+                        <div class="glass-card" style="padding: 1.5rem;">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                                <div>
+                                    <span class="eyebrow" style="color: var(--clr-teal-light);">Active Project</span>
+                                    <h3 style="margin-top: 0.25rem;">ERP Cloud Migration</h3>
+                                </div>
+                                <span style="background: rgba(127, 230, 176, 0.2); color: #7fe6b0; padding: 0.25rem 0.75rem; border-radius: 2rem; font-size: 0.85rem; font-weight: 600;">On Track</span>
+                            </div>
+                            <div class="progress-bar-container" style="background: var(--glass-border); height: 8px; border-radius: 4px; overflow: hidden; margin-bottom: 0.5rem;">
+                                <div style="background: var(--clr-teal); width: 65%; height: 100%;"></div>
+                            </div>
+                            <p class="text-muted" style="font-size: 0.9rem;">65% Complete &bull; Phase 2</p>
+                        </div>
 
-                </div>
+                        <div class="glass-card" style="padding: 1.5rem;">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                                <div>
+                                    <span class="eyebrow" style="color: var(--clr-teal-light);">Managed Services</span>
+                                    <h3 style="margin-top: 0.25rem;">Support Tickets</h3>
+                                </div>
+                            </div>
+                            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem;">
+                                <li style="display: flex; justify-content: space-between; font-size: 0.95rem;">
+                                    <span><i class="fa-solid fa-circle-check" style="color: #7fe6b0; margin-right: 0.5rem;"></i> DB Performance Tuning</span>
+                                    <span class="text-muted">Closed</span>
+                                </li>
+                                <li style="display: flex; justify-content: space-between; font-size: 0.95rem;">
+                                    <span><i class="fa-solid fa-spinner" style="color: var(--clr-red); margin-right: 0.5rem;"></i> Integration Review</span>
+                                    <span class="text-muted">In Progress</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 2rem; border-top: 1px solid var(--glass-border); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap;">
+                        <a href="account.html" class="btn btn-secondary"><i class="fa-solid fa-gear"></i> Account Settings</a>
+                        <button class="btn btn-secondary global-sign-out"><i class="fa-solid fa-sign-out-alt"></i> Sign out</button>
+                    </div></div>
             </div>
         </div></section>
     </main>
     <footer class="footer"><div class="container footer-content"><section class="footer-brand" aria-label="Inforabia"><a class="logo" href="index.html"><img src="https://img1.wsimg.com/isteam/ip/641b16bf-0aca-44a9-8d2c-d4f57fdf78f0/Inforabia.jpg" alt="Inforabia"></a><p>Accelerating digital success through innovative IT solutions and expert Oracle consultancy.</p><div class="social-links"><a href="https://www.facebook.com/InforabiaSolutions/" target="_blank" rel="noopener noreferrer" aria-label="Inforabia on Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a><a href="https://x.com/InforabiaS47042" target="_blank" rel="noopener noreferrer" aria-label="Inforabia on X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a><a href="https://www.instagram.com/inforabia_solutions/" target="_blank" rel="noopener noreferrer" aria-label="Inforabia on Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a><a href="https://linkedin.com/company/inforabia" target="_blank" rel="noopener noreferrer" aria-label="Inforabia on LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a><a href="https://www.youtube.com/@inforabiasolutions" target="_blank" rel="noopener noreferrer" aria-label="Inforabia on YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></div></section><section><h2>Explore</h2><ul class="footer-links"><li><a href="about.html">About us</a></li><li><a href="services.html">Services</a></li><li><a href="bookings.html">Book a consultation</a></li><li><a href="auth.html">Client access</a></li></ul></section><section><h2>Contact</h2><ul class="contact-list"><li><i class="fa-solid fa-envelope" aria-hidden="true"></i><a href="mailto:Info@inforabia.com">Info@inforabia.com</a></li><li><i class="fa-solid fa-phone" aria-hidden="true"></i><a href="tel:+966545220713">+966 54 522 0713</a></li><li><i class="fa-solid fa-location-dot" aria-hidden="true"></i><span>7306 King Fahad St, Al Wisham Dist, Riyadh</span></li></ul></section></div><div class="container footer-bottom"><p>&copy; 2026 Inforabia Solutions and Consultancy. All rights reserved.</p></div></footer>
+    <div class="floating-widget animate-on-scroll delay-300">
+        <a href="bookings.html" class="fab fab--booking" aria-label="Book a consultation" title="Book Consultation">
+            <i class="fa-solid fa-calendar-check"></i>
+        </a>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>

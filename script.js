@@ -1,4 +1,5 @@
 document.documentElement.classList.add('has-js');
+document.addEventListener("touchstart", function(){}, {passive: true}); // Enable :active pseudo-classes on iOS Safari
 
 document.addEventListener('DOMContentLoaded', () => {
     const navToggle = document.querySelector('[data-nav-toggle]');
@@ -124,6 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+
     const bookingForm = document.querySelector('[data-whatsapp-form]');
     if (bookingForm) {
         const preferredDate = bookingForm.querySelector('[name="preferredDate"]');
@@ -173,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const targetPanel = menuContainer.querySelector(`#${targetId}`);
                 if (targetPanel) targetPanel.classList.add('active');
             };
-            tab.addEventListener('mouseenter', () => { if (window.innerWidth > 992) activateTab(); });
+            tab.addEventListener('mouseenter', () => { activateTab(); });
             tab.addEventListener('click', (e) => { e.preventDefault(); activateTab(); });
         });
     }
@@ -181,31 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const megaDropdownItem = document.querySelector('.nav-item-dropdown');
     if (megaDropdownItem) {
         const toggleLink = megaDropdownItem.querySelector('.nav-link');
-        toggleLink.addEventListener('click', (e) => {
-            if (window.innerWidth <= 992) {
-                e.preventDefault();
-                megaDropdownItem.classList.toggle('open');
-                const icon = toggleLink.querySelector('.fa-chevron-down');
-                if (icon) {
-                    icon.style.transform = megaDropdownItem.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0)';
-                    icon.style.transition = 'transform 0.3s ease';
-                }
-            }
-        });
-    }
-
-    // -----------------------------------------
-    // Floating Action Button (FAB)
-    // -----------------------------------------
-    const isAuthPage = window.location.pathname.includes('auth.html') || window.location.pathname.includes('account.html');
-    if (!isAuthPage) {
-        const fab = document.createElement('a');
-        fab.href = 'bookings.html';
-        fab.className = 'floating-fab animate-on-scroll';
-        fab.innerHTML = '<i class="fa-solid fa-calendar-check" aria-hidden="true"></i> <span>Book a Consultation</span>';
-        document.body.appendChild(fab);
-        
-        setTimeout(() => fab.classList.add('is-visible'), 500);
+        // Let the link navigate normally on all devices
     }
 
     // -----------------------------------------
@@ -356,16 +334,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2.5 Disable mega-link click navigation
-    const megaLinks = document.querySelectorAll('.mega-link');
-    if (megaLinks.length > 0) {
-        megaLinks.forEach(link => {
-            link.style.cursor = 'default';
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-            });
-        });
-    }
+
 
     // 3. Handle auth.html view (Forms vs Dashboard)
     const authForms = document.getElementById('auth-forms');
