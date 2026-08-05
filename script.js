@@ -471,7 +471,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     window.location.href = window.location.pathname;
                 });
             }
-            
+        }
+
             // Profile Picture Logic
             const profilePicUpload = document.getElementById('profile-pic-upload');
             const profilePicPreview = document.getElementById('profile-pic-preview');
@@ -480,9 +481,24 @@ document.addEventListener('DOMContentLoaded', () => {
             let tempAvatarDataUrl = null;
 
             if (profilePicUpload && profilePicPreview) {
+                const profilePicError = document.getElementById('profile-pic-error');
                 profilePicUpload.addEventListener('change', function() {
                     const file = this.files[0];
                     if (file) {
+                        if (file.size > 2 * 1024 * 1024) {
+                            if (profilePicError) {
+                                profilePicError.textContent = 'Image is too large. Please upload an image smaller than 2MB.';
+                                profilePicError.style.display = 'block';
+                            }
+                            this.value = ''; // Reset input
+                            saveProfilePicBtn.disabled = true;
+                            tempAvatarDataUrl = null;
+                            profilePicPreview.innerHTML = '<i class="fa-solid fa-camera" style="font-size: 2rem; color: var(--clr-teal); opacity: 0.5;"></i>';
+                            return;
+                        }
+                        
+                        if (profilePicError) profilePicError.style.display = 'none';
+                        
                         const reader = new FileReader();
                         reader.onload = function(e) {
                             tempAvatarDataUrl = e.target.result;
@@ -532,6 +548,5 @@ document.addEventListener('DOMContentLoaded', () => {
                     window.location.reload();
                 });
             }
-        }
     }
 });

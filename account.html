@@ -130,6 +130,7 @@
                         <div>
                             <h2 style="margin: 0; font-size: 1.5rem;" id="display-name">Loading...</h2>
                             <p class="text-muted" style="margin-top: 0.25rem;">Manage your profile and preferences.</p>
+                            <p id="avatar-error" style="color: #c00000; font-size: 0.9rem; margin-top: 0.5rem; display: none;"></p>
                         </div>
                     </div>
                     
@@ -228,11 +229,17 @@
                 const file = e.target.files[0];
                 if (!file) return;
                 
-                // Limit to 1MB
-                if (file.size > 1024 * 1024) {
-                    alert('Image is too large. Please choose an image under 1MB.');
+                const avatarError = document.getElementById('avatar-error');
+                
+                // Limit to 2MB
+                if (file.size > 2 * 1024 * 1024) {
+                    avatarError.textContent = 'Image is too large. Please choose an image under 2MB.';
+                    avatarError.style.display = 'block';
+                    e.target.value = ''; // Reset input
                     return;
                 }
+                
+                avatarError.style.display = 'none';
                 
                 const reader = new FileReader();
                 reader.onload = function(event) {
@@ -282,6 +289,7 @@
                 
                 const newName = document.getElementById('acc-name').value;
                 const newEmail = document.getElementById('acc-email').value;
+                const newPassword = document.getElementById('acc-password').value;
                 // Update local DB
                 const updatedUser = {
                     ...user,
@@ -299,8 +307,8 @@
                 status.textContent = 'Profile updated successfully!';
                 document.getElementById('display-name').textContent = newName;
                 
-                // Trigger nav update
-                setTimeout(() => window.location.href = window.location.pathname, 1000);
+                // Trigger nav update to home
+                setTimeout(() => window.location.href = 'index.html', 1000);
             });
         });
     </script>
